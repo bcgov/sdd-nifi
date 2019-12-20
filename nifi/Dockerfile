@@ -11,4 +11,4 @@ ADD ./logback.xml /opt/nifi/nifi-1.10.0/conf
 USER nifi
 
 COPY scripts /scripts
-RUN ls -l /
+

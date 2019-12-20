@@ -2,7 +2,7 @@ FROM apache/nifi:1.10.0
 
 USER root
 
-RUN apt-get install -y python3 python3-pip
+RUN apt-get update && apt-get install -y python3 python3-pip
 
 RUN pip3 install tableschema requests numpy pandas messytables
 

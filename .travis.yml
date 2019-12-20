@@ -1,0 +1,17 @@
+dist: trusty
+sudo: required
+language: python
+services:
+- docker
+matrix:
+  include:
+  - name: NiFi Image
+    stage: Secure Data Dock
+    language: python
+    script:
+    - |-
+      cd /home/travis/build/bcgov/sdd-nifi/nifi
+      bash ../.travis/docker_quayio_push sdd-nifi
+
+env:
+  global:

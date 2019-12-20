@@ -1,0 +1,7 @@
+  
+**.DS_STORE
+.DS_Store
+node_modules
+kubeconfig
+default.yaml
+LOCAL.md

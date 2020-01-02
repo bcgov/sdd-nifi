@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>Removed unnecessary attributes.  Added additional subprocess labels</description>
+    <description>fix for merge processor not having enough bins</description>
     <groupId>ddb3537a-016e-1000-b1a5-9a8e3b615768</groupId>
-    <name>SDD-POC-v1.37</name>
+    <name>SDD-POC-v1.39</name>
     <snippet>
         <connections>
             <id>08f32a69-d14d-3cf9-0000-000000000000</id>
@@ -6676,7 +6676,7 @@
                             </entry>
                             <entry>
 <key>Command Arguments</key>
-<value>${DataPackageResourcesWithData};${ResourceName}</value>
+<value>${DataPackageResourcesWithData};${ResourceName};${fragment.index}</value>
                             </entry>
                             <entry>
 <key>Command Path</key>
@@ -6863,6 +6863,12 @@
 </value>
                             </entry>
                             <entry>
+<key>DatapackageNumDataFiles</key>
+<value>
+    <name>DatapackageNumDataFiles</name>
+</value>
+                            </entry>
+                            <entry>
 <key>DatapackageZipName</key>
 <value>
     <name>DatapackageZipName</name>
@@ -6922,6 +6928,10 @@
                             <entry>
 <key>DatapackageFragmentIndex</key>
 <value>${fragment.count:plus(1)}</value>
+                            </entry>
+                            <entry>
+<key>DatapackageNumDataFiles</key>
+<value>${DataPackageJson:jsonPath('$.resources.length()')}</value>
                             </entry>
                             <entry>
 <key>DatapackageZipName</key>
@@ -8250,7 +8260,7 @@
                             </entry>
                             <entry>
 <key>filename</key>
-<value>metadataconsistencyresults.csv</value>
+<value>metadataconsistencyresults.txt</value>
                             </entry>
                             <entry>
 <key>fragment.count</key>
@@ -9418,7 +9428,7 @@
                             </entry>
                             <entry>
 <key>MetadataConsistencyResults</key>
-<value>${MetadataConsistencyResults:equals('success'):ifElse('','${MetadataConsistencyResults} ${filename} line ${fragment.index}\n'):replaceAll('"','\'')}</value>
+<value>${MetadataConsistencyResults:equals('success'):ifElse('','${filename} ${MetadataConsistencyResults}'):replaceAll('"','\'')}</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -9873,7 +9883,7 @@
                             </entry>
                             <entry>
 <key>Maximum number of Bins</key>
-<value>5</value>
+<value>20</value>
                             </entry>
                             <entry>
 <key>Delimiter Strategy</key>
@@ -12836,7 +12846,7 @@
                             </entry>
                             <entry>
 <key>filename</key>
-<value>scanresults.csv</value>
+<value>scanresults.txt</value>
                             </entry>
                             <entry>
 <key>fragment.count</key>
@@ -26247,7 +26257,7 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                             </entry>
                             <entry>
 <key>filename</key>
-<value>stats_summary_${filename}</value>
+<value>stats_summary_${filename}.txt</value>
                             </entry>
                             <entry>
 <key>path</key>
@@ -26383,13 +26393,38 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
-                    <id>7557808d-bd6d-3315-0000-000000000000</id>
+                    <id>6734224c-a8f1-30d5-0000-000000000000</id>
                     <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
                     <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                     <destination>
                         <groupId>fa120334-fa68-3e83-0000-000000000000</groupId>
                         <id>2038058f-51bf-3a69-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>fa120334-fa68-3e83-0000-000000000000</groupId>
+                        <id>60f839a5-bbd3-353e-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>7557808d-bd6d-3315-0000-000000000000</id>
+                    <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>fa120334-fa68-3e83-0000-000000000000</groupId>
+                        <id>60f839a5-bbd3-353e-0000-000000000000</id>
                         <type>PROCESSOR</type>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
@@ -26568,7 +26603,7 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                         <x>664.0</x>
                         <y>536.0</y>
                     </position>
-                    <height>520.0</height>
+                    <height>704.0</height>
                     <label>Add the results of the foreign key consistency check as a file in the data package</label>
                     <style>
                         <entry>
@@ -26582,8 +26617,8 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                     <id>8e50015f-b699-3450-0000-000000000000</id>
                     <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
                     <position>
-                        <x>2040.0</x>
-                        <y>928.0</y>
+                        <x>2024.0</x>
+                        <y>1128.0</y>
                     </position>
                     <comments></comments>
                     <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -26661,8 +26696,8 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                     <id>2038058f-51bf-3a69-0000-000000000000</id>
                     <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
                     <position>
-                        <x>1384.0</x>
-                        <y>736.0</y>
+                        <x>1376.0</x>
+                        <y>920.0</y>
                     </position>
                     <bundle>
                         <artifact>nifi-update-attribute-nar</artifact>
@@ -26731,7 +26766,7 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                             </entry>
                             <entry>
 <key>filename</key>
-<value>foreign_key_consistency_results.csv</value>
+<value>foreign_key_consistency_results.txt</value>
                             </entry>
                             <entry>
 <key>fragment.index</key>
@@ -26991,8 +27026,8 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                     <id>3e174a9f-966e-3b9e-0000-000000000000</id>
                     <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
                     <position>
-                        <x>752.0</x>
-                        <y>880.0</y>
+                        <x>736.0</x>
+                        <y>1080.0</y>
                     </position>
                     <bundle>
                         <artifact>nifi-update-attribute-nar</artifact>
@@ -27180,11 +27215,123 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                 </processors>
                 <processors>
-                    <id>91f8d012-5932-38b1-0000-000000000000</id>
+                    <id>60f839a5-bbd3-353e-0000-000000000000</id>
                     <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
                     <position>
                         <x>1384.0</x>
-                        <y>872.0</y>
+                        <y>728.0</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.10.0</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Regular Expression</key>
+<value>
+    <name>Regular Expression</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Replacement Value</key>
+<value>
+    <name>Replacement Value</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Character Set</key>
+<value>
+    <name>Character Set</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Maximum Buffer Size</key>
+<value>
+    <name>Maximum Buffer Size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Replacement Strategy</key>
+<value>
+    <name>Replacement Strategy</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Evaluation Mode</key>
+<value>
+    <name>Evaluation Mode</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Line-by-Line Evaluation Mode</key>
+<value>
+    <name>Line-by-Line Evaluation Mode</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Regular Expression</key>
+<value>"</value>
+                            </entry>
+                            <entry>
+<key>Replacement Value</key>
+<value></value>
+                            </entry>
+                            <entry>
+<key>Character Set</key>
+<value>UTF-8</value>
+                            </entry>
+                            <entry>
+<key>Maximum Buffer Size</key>
+<value>1 MB</value>
+                            </entry>
+                            <entry>
+<key>Replacement Strategy</key>
+<value>Literal Replace</value>
+                            </entry>
+                            <entry>
+<key>Evaluation Mode</key>
+<value>Entire text</value>
+                            </entry>
+                            <entry>
+<key>Line-by-Line Evaluation Mode</key>
+<value>All</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>RemoveQuotesReplaceText</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.ReplaceText</type>
+                </processors>
+                <processors>
+                    <id>91f8d012-5932-38b1-0000-000000000000</id>
+                    <parentGroupId>fa120334-fa68-3e83-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1368.0</x>
+                        <y>1072.0</y>
                     </position>
                     <bundle>
                         <artifact>nifi-standard-nar</artifact>
@@ -30484,5 +30631,5 @@ The uuid of the datapackage is part of the filenames of the files (allowing us t
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>12/30/2019 18:32:11 UTC</timestamp>
+    <timestamp>01/02/2020 20:19:30 UTC</timestamp>
 </template>

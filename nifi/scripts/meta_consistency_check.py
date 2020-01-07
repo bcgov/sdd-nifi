@@ -2,8 +2,9 @@
 
 import sys
 import json
-from datapackage import Package
-from datapackage import exceptions
+import csv
+from tableschema import Table
+from tableschema import TableSchemaException
 
 err_str = ''
 def exc_handler(exc, row_number=None, row_data=None, error_data=None):
@@ -16,10 +17,10 @@ def exc_handler(exc, row_number=None, row_data=None, error_data=None):
         errMessage = str(exc)
     err_str = err_str + 'line:' + str((row_number - 1)*fragmentIndex) + ' , error:' + str(errMessage) + '\n' 
 
-# argv[1] is the data package schema 
+# argv[1] is the resource schema 
 revised = sys.argv[1].replace('ñÇ','"')
 try:
-    dataPackageSchema=json.loads(revised)
+    resourceSchema=json.loads(revised)
 except:
     print('Error loading json.  Likely json is invalid.', end = '')
     exit()
@@ -27,16 +28,19 @@ except:
 # argv[2] is the resource in the data package to validate.  The 'data' elment for the resource should be populated (it's this data that is being validated)
 resourceName = sys.argv[2]
 fragmentIndex = int(sys.argv[3])
+csv_file = csv.reader(sys.stdin, skipinitialspace=True, quotechar='"', delimiter=',')
 try:
-    package = Package(dataPackageSchema)
-    resource = package.get_resource(resourceName)
-    for r in resource.iter(integrity=False, relations=False, cast=True, foreign_keys_values=False, exc_handler=exc_handler):
+    results = []
+    for row in csv_file: # need to create an array of arrays for creation of Table object
+        results.append(row)
+    table = Table(results, schema=resourceSchema)
+    for t in table.iter(integrity=False, relations=False, cast=True, foreign_keys_values=False, exc_handler=exc_handler):
         continue
     if (err_str == ''):
         print('success', end = '')
     else:
         print(err_str, end = '')
-except exceptions.DataPackageException as e:
+except TableSchemaException as e:
     errMessage = ''
     if e.multiple:
         for error in e.errors:

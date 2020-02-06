@@ -1,0 +1,61 @@
+#!/bin/bash
+
+if [ $3 ]
+then
+	ext=$3
+else
+	ext=".csv"
+fi
+sep=","
+path=$1
+find $path -type f -name "* *" | while read file; do mv "$file" ${file// /_}; done
+if [ $2 == 'false' ]
+then
+	find $path -type f \( -name "*.zip" -or -name "*.ZIP" \) -print0 | sort |
+	while IFS= read -r -d '' file; do
+		unzip $file -d $path
+	done
+	find $path -type f \( -name "*.7z" -or -name "*.7Z" \) -print0 | sort |
+	while IFS= read -r -d '' file; do
+		7z x $file -o $path
+	done
+	echo ""
+	#for file in $("'$(find $path -type f -name "*.csv" -or -name "*.CSV" | sort)'")
+	#do
+fi
+find $path -type f \( -name "*.csv" -or -name "*.CSV" \) -print0 | sort |
+while IFS= read -r -d '' file; do
+	origfile=$(find $path -name $(basename $file .csv)${ext})
+	dos2unix $file > /dev/null
+	#sanitize_csv $file
+	size=$(du -h $origfile | cut  -f1)B
+	records=$(wc -l < $file)
+	hcolumns=$(head -1 $file | awk -F$sep '{print NF}')
+	phnlines=$(./phn_finder $file | wc -l)    
+	phonelines=$(./phone_finder $file | wc -l)
+	./chkfreq $file >  $(basename $file .csv).tab
+	freqnm=$(basename $file .csv).tab
+	#namecnt=$(scannames $freqnm)
+	#commonmissclass=$(missclass $freqnm)
+	md5sum=$(md5sum $file) 
+	echo "X) $origfile"
+	echo "- size: $size"
+	echo "- contains $records records (including header)"
+	echo "- md5sum: $md5sum"
+	echo "******"
+	./field_summary_csv $file $sep | ./highlight *remove
+	echo "run sanitize_csv on the file if there are linebreaks in quoted fields" | ./highlight *remove
+	echo "******"
+	echo "- contains $hcolumns columns:"
+	./get_column_names.sh $file | ./highlight *remove
+	echo "******"
+	head -5 $file | ./highlight *remove
+	tail -5 $file | ./highlight *remove
+	echo "******"
+	echo "$phnlines lines have potential PHNs"
+	echo "$phonelines lines have potential phone numbers"
+	echo "$namecnt potential names flagged"
+	echo "$missclass commonly missclassified" | ./highlight *remove
+	echo ""
+	echo ""
+done

@@ -1,0 +1,2835 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template encoding-version="1.3">
+    <description>parameterized and added labels</description>
+    <groupId>159e622c-0170-1000-f0d9-75519556d804</groupId>
+    <name>SDD-RP-SecureZone-v1.1</name>
+    <snippet>
+        <connections>
+            <id>059e7dd8-9552-376c-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>7fae9316-1c24-33d7-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>NeedsGPGDecrypting</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>a4a25987-6f9b-3238-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>0a870abe-267a-3bb3-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>c2cac570-4541-31f3-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>output stream</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>70bd20c4-8949-31f1-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>0fb778cc-c4be-351c-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>5ee5ae22-58de-3428-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>06eab878-3409-305d-0000-000000000000</id>
+                <type>INPUT_PORT</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>19c4db18-0dc8-362a-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>6c817c0d-20ab-3e6a-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>6466dcd6-4fb3-3d73-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>20190499-53be-38d0-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>871e8a98-bf5a-3a2b-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>ee30be30-37ea-343c-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>268c771e-cc75-3076-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>4f620fa0-8a1c-39f5-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>a4efe4fe-42f8-388f-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>328b3519-5b7a-379b-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>70bd20c4-8949-31f1-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>4f620fa0-8a1c-39f5-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>3ac2f5e1-40d2-37ee-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>a4a25987-6f9b-3238-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>f288372c-325a-3e68-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>5805bc1e-4e27-3b4d-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>f288372c-325a-3e68-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>7fae9316-1c24-33d7-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>6304ace2-9912-38b7-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>a4efe4fe-42f8-388f-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>NeedsAESDecrypting</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>af9a8f31-b1eb-3c71-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>68046ecb-e89c-3c28-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>a4a25987-6f9b-3238-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>5ee5ae22-58de-3428-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>6a2662d9-ed93-3249-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>af9a8f31-b1eb-3c71-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>d62310e0-3696-3faf-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>85f7a192-1b05-3b30-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>8e2bb25c-2b1c-3c6b-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>b9986daf-1164-3069-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>978cbec9-4d6f-3c85-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>ee30be30-37ea-343c-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>output stream</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>c2cac570-4541-31f3-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>b45b31ae-71c3-36a7-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>d62310e0-3696-3faf-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>unmatched</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>a4a25987-6f9b-3238-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>c04f11f9-aa2e-311b-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>b9986daf-1164-3069-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>output stream</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>c2cac570-4541-31f3-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>cd2ddf38-382a-39e4-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>c2cac570-4541-31f3-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>UnEncryptedDataFile</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>af9a8f31-b1eb-3c71-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>e2c390a7-24fc-384c-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>9258e0e8-178d-366a-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>nonzero status</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>70bd20c4-8949-31f1-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <inputPorts>
+            <id>06eab878-3409-305d-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>0.0</x>
+                <y>672.0</y>
+            </position>
+            <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+            <name>FromYellowZone</name>
+            <state>RUNNING</state>
+            <type>INPUT_PORT</type>
+        </inputPorts>
+        <labels>
+            <id>048cd822-d508-30ca-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1392.0</x>
+                <y>760.0</y>
+            </position>
+            <height>224.0</height>
+            <label>Save the files to an intake folder</label>
+            <style>
+                <entry>
+                    <key>font-size</key>
+                    <value>12px</value>
+                </entry>
+            </style>
+            <width>400.0</width>
+        </labels>
+        <labels>
+            <id>186aedd4-a17a-39fa-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>704.0</x>
+                <y>0.0</y>
+            </position>
+            <height>248.0</height>
+            <label>If data file is AES encrypted (has a passphrase), decrypt it</label>
+            <style>
+                <entry>
+                    <key>font-size</key>
+                    <value>12px</value>
+                </entry>
+            </style>
+            <width>2240.0</width>
+        </labels>
+        <labels>
+            <id>24c465d7-5533-33c1-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2728.0</x>
+                <y>352.0</y>
+            </position>
+            <height>512.0</height>
+            <label>When summary reports are approved (by moving them into the approved reports folder, send an email to stakeholders</label>
+            <style>
+                <entry>
+                    <key>font-size</key>
+                    <value>12px</value>
+                </entry>
+            </style>
+            <width>632.0</width>
+        </labels>
+        <labels>
+            <id>43c90497-afd2-36b8-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1816.0</x>
+                <y>848.0</y>
+            </position>
+            <height>664.0</height>
+            <label>Generate the summary report.  Save a copy in the intake folder and notify stakeholders that report is ready for review.</label>
+            <style>
+                <entry>
+                    <key>font-size</key>
+                    <value>12px</value>
+                </entry>
+            </style>
+            <width>904.0</width>
+        </labels>
+        <labels>
+            <id>dad7cf06-0c84-35c7-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>520.0</x>
+                <y>704.0</y>
+            </position>
+            <height>640.0</height>
+            <label>If the data file is GPG encrypted, decrypt it</label>
+            <style>
+                <entry>
+                    <key>font-size</key>
+                    <value>12px</value>
+                </entry>
+            </style>
+            <width>816.0</width>
+        </labels>
+        <processors>
+            <id>4f620fa0-8a1c-39f5-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1312.0</x>
+                <y>56.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>
+                            <name>Regular Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>
+                            <name>Replacement Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <name>Character Set</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <name>Maximum Buffer Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>
+                            <name>Replacement Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>
+                            <name>Evaluation Mode</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>
+                            <name>Line-by-Line Evaluation Mode</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>^"(.*)"$</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>$1</value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>Regex Replace</value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>Entire text</value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>All</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>ReplaceText</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+        </processors>
+        <processors>
+            <id>5ee5ae22-58de-3428-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>632.0</x>
+                <y>472.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-update-attribute-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Delete Attributes Expression</key>
+                        <value>
+                            <name>Delete Attributes Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Store State</key>
+                        <value>
+                            <name>Store State</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Stateful Variables Initial Value</key>
+                        <value>
+                            <name>Stateful Variables Initial Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>canonical-value-lookup-cache-size</key>
+                        <value>
+                            <name>canonical-value-lookup-cache-size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>DataFileWorkingDirectory</key>
+                        <value>
+                            <name>DataFileWorkingDirectory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>filename</key>
+                        <value>
+                            <name>filename</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>IsDataFile</key>
+                        <value>
+                            <name>IsDataFile</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>IsUnEncryptedDataFile</key>
+                        <value>
+                            <name>IsUnEncryptedDataFile</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>RequiresAESDecryption</key>
+                        <value>
+                            <name>RequiresAESDecryption</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>RequiresGPGDecryption</key>
+                        <value>
+                            <name>RequiresGPGDecryption</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SummaryReportName</key>
+                        <value>
+                            <name>SummaryReportName</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Delete Attributes Expression</key>
+                    </entry>
+                    <entry>
+                        <key>Store State</key>
+                        <value>Do not store state</value>
+                    </entry>
+                    <entry>
+                        <key>Stateful Variables Initial Value</key>
+                    </entry>
+                    <entry>
+                        <key>canonical-value-lookup-cache-size</key>
+                        <value>100</value>
+                    </entry>
+                    <entry>
+                        <key>DataFileWorkingDirectory</key>
+                        <value>#{SummaryReportDirectory}/recvd_${DataDateStamp:replaceAll('[^a-zA-Z0-9]','')}${SendingUser:replaceAll('[^a-zA-Z0-9]','')}</value>
+                    </entry>
+                    <entry>
+                        <key>filename</key>
+                        <value>${filename:equals('${DataFileName}'):and(${OriginalFileName:notNull()}):ifElse('${OriginalFileName}','${filename}')}</value>
+                    </entry>
+                    <entry>
+                        <key>IsDataFile</key>
+                        <value>${filename:equals('${DataFileName}')}</value>
+                    </entry>
+                    <entry>
+                        <key>IsUnEncryptedDataFile</key>
+                        <value>${filename:equals('${DataFileName}'):and(${EncryptionKey:equalsIgnoreCase('none')})}</value>
+                    </entry>
+                    <entry>
+                        <key>RequiresAESDecryption</key>
+                        <value>${EncryptionKey:equalsIgnoreCase('GPG'):not():and(${EncryptionKey:equalsIgnoreCase('none'):not()}):and(${filename:equals('${DataFileName}')})}</value>
+                    </entry>
+                    <entry>
+                        <key>RequiresGPGDecryption</key>
+                        <value>${EncryptionKey:equalsIgnoreCase('GPG'):and(${filename:equals('${DataFileName}')})}</value>
+                    </entry>
+                    <entry>
+                        <key>SummaryReportName</key>
+                        <value>sum_report_${DataDateStamp:replaceAll('[^a-zA-Z0-9]','')}${SendingUser:replaceAll('[^a-zA-Z0-9]','')}.txt</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>SetFlowVariables</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+        </processors>
+        <processors>
+            <id>6466dcd6-4fb3-3d73-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2904.0</x>
+                <y>408.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Input Directory</key>
+                        <value>
+                            <name>Input Directory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>File Filter</key>
+                        <value>
+                            <name>File Filter</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Path Filter</key>
+                        <value>
+                            <name>Path Filter</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Batch Size</key>
+                        <value>
+                            <name>Batch Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Keep Source File</key>
+                        <value>
+                            <name>Keep Source File</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Recurse Subdirectories</key>
+                        <value>
+                            <name>Recurse Subdirectories</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Polling Interval</key>
+                        <value>
+                            <name>Polling Interval</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Ignore Hidden Files</key>
+                        <value>
+                            <name>Ignore Hidden Files</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Age</key>
+                        <value>
+                            <name>Minimum File Age</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Age</key>
+                        <value>
+                            <name>Maximum File Age</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Size</key>
+                        <value>
+                            <name>Minimum File Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Size</key>
+                        <value>
+                            <name>Maximum File Size</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Input Directory</key>
+                        <value>#{ApprovedSummaryReportDirectory}</value>
+                    </entry>
+                    <entry>
+                        <key>File Filter</key>
+                        <value>[^\.].*\.txt</value>
+                    </entry>
+                    <entry>
+                        <key>Path Filter</key>
+                    </entry>
+                    <entry>
+                        <key>Batch Size</key>
+                        <value>10</value>
+                    </entry>
+                    <entry>
+                        <key>Keep Source File</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Recurse Subdirectories</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Polling Interval</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>Ignore Hidden Files</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Age</key>
+                        <value>0 sec</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Age</key>
+                    </entry>
+                    <entry>
+                        <key>Minimum File Size</key>
+                        <value>0 B</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Size</key>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>60 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>GetApprovedReports</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.GetFile</type>
+        </processors>
+        <processors>
+            <id>6c817c0d-20ab-3e6a-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2904.0</x>
+                <y>696.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>SMTP Hostname</key>
+                        <value>
+                            <name>SMTP Hostname</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Port</key>
+                        <value>
+                            <name>SMTP Port</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Username</key>
+                        <value>
+                            <name>SMTP Username</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Password</key>
+                        <value>
+                            <name>SMTP Password</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Auth</key>
+                        <value>
+                            <name>SMTP Auth</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP TLS</key>
+                        <value>
+                            <name>SMTP TLS</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Socket Factory</key>
+                        <value>
+                            <name>SMTP Socket Factory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP X-Mailer Header</key>
+                        <value>
+                            <name>SMTP X-Mailer Header</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>attribute-name-regex</key>
+                        <value>
+                            <name>attribute-name-regex</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Content Type</key>
+                        <value>
+                            <name>Content Type</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>From</key>
+                        <value>
+                            <name>From</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>To</key>
+                        <value>
+                            <name>To</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>CC</key>
+                        <value>
+                            <name>CC</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>BCC</key>
+                        <value>
+                            <name>BCC</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Subject</key>
+                        <value>
+                            <name>Subject</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Message</key>
+                        <value>
+                            <name>Message</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>email-ff-content-as-message</key>
+                        <value>
+                            <name>email-ff-content-as-message</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Attach File</key>
+                        <value>
+                            <name>Attach File</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Include All Attributes In Message</key>
+                        <value>
+                            <name>Include All Attributes In Message</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>SMTP Hostname</key>
+                        <value>#{SMTP hostname}</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Port</key>
+                        <value>25</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Username</key>
+                    </entry>
+                    <entry>
+                        <key>SMTP Password</key>
+                    </entry>
+                    <entry>
+                        <key>SMTP Auth</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP TLS</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Socket Factory</key>
+                        <value>javax.net.ssl.SSLSocketFactory</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP X-Mailer Header</key>
+                        <value>NiFi</value>
+                    </entry>
+                    <entry>
+                        <key>attribute-name-regex</key>
+                    </entry>
+                    <entry>
+                        <key>Content Type</key>
+                        <value>text/plain</value>
+                    </entry>
+                    <entry>
+                        <key>From</key>
+                        <value>#{SMTPFromName}</value>
+                    </entry>
+                    <entry>
+                        <key>To</key>
+                        <value>#{ApprovedReportEmailToNotify}</value>
+                    </entry>
+                    <entry>
+                        <key>CC</key>
+                    </entry>
+                    <entry>
+                        <key>BCC</key>
+                    </entry>
+                    <entry>
+                        <key>Subject</key>
+                        <value>Data summary report - ${DataFileName}</value>
+                    </entry>
+                    <entry>
+                        <key>Message</key>
+                    </entry>
+                    <entry>
+                        <key>email-ff-content-as-message</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Attach File</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Include All Attributes In Message</key>
+                        <value>false</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>ApprovedReportSummary</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>DISABLED</state>
+            <style>
+                <entry>
+                    <key>background-color</key>
+                    <value>#0dfcf4</value>
+                </entry>
+            </style>
+            <type>org.apache.nifi.processors.standard.PutEmail</type>
+        </processors>
+        <processors>
+            <id>70bd20c4-8949-31f1-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1936.0</x>
+                <y>80.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>argumentsStrategy</key>
+                        <value>
+                            <name>argumentsStrategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Command Arguments</key>
+                        <value>
+                            <name>Command Arguments</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Command Path</key>
+                        <value>
+                            <name>Command Path</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Ignore STDIN</key>
+                        <value>
+                            <name>Ignore STDIN</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Working Directory</key>
+                        <value>
+                            <name>Working Directory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Argument Delimiter</key>
+                        <value>
+                            <name>Argument Delimiter</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Output Destination Attribute</key>
+                        <value>
+                            <name>Output Destination Attribute</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Max Attribute Length</key>
+                        <value>
+                            <name>Max Attribute Length</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>argumentsStrategy</key>
+                        <value>Command Arguments Property</value>
+                    </entry>
+                    <entry>
+                        <key>Command Arguments</key>
+                        <value>${DataFileName}</value>
+                    </entry>
+                    <entry>
+                        <key>Command Path</key>
+                        <value>/opt/nifi/nifi-current/nifi_custom_scripts/decrypt_encryption3.sh</value>
+                    </entry>
+                    <entry>
+                        <key>Ignore STDIN</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Working Directory</key>
+                        <value>${DataFileWorkingDirectory}</value>
+                    </entry>
+                    <entry>
+                        <key>Argument Delimiter</key>
+                        <value> </value>
+                    </entry>
+                    <entry>
+                        <key>Output Destination Attribute</key>
+                    </entry>
+                    <entry>
+                        <key>Max Attribute Length</key>
+                        <value>256</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>DecryptZip7zExecuteStreamCommand</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>nonzero status</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>original</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>output stream</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.ExecuteStreamCommand</type>
+        </processors>
+        <processors>
+            <id>7fae9316-1c24-33d7-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>544.0</x>
+                <y>984.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Mode</key>
+                        <value>
+                            <name>Mode</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>key-derivation-function</key>
+                        <value>
+                            <name>key-derivation-function</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Encryption Algorithm</key>
+                        <value>
+                            <name>Encryption Algorithm</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>allow-weak-crypto</key>
+                        <value>
+                            <name>allow-weak-crypto</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Password</key>
+                        <value>
+                            <name>Password</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>raw-key-hex</key>
+                        <value>
+                            <name>raw-key-hex</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>public-keyring-file</key>
+                        <value>
+                            <name>public-keyring-file</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>public-key-user-id</key>
+                        <value>
+                            <name>public-key-user-id</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>private-keyring-file</key>
+                        <value>
+                            <name>private-keyring-file</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>private-keyring-passphrase</key>
+                        <value>
+                            <name>private-keyring-passphrase</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>pgp-symmetric-cipher</key>
+                        <value>
+                            <name>pgp-symmetric-cipher</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Mode</key>
+                        <value>Decrypt</value>
+                    </entry>
+                    <entry>
+                        <key>key-derivation-function</key>
+                        <value>BCRYPT</value>
+                    </entry>
+                    <entry>
+                        <key>Encryption Algorithm</key>
+                        <value>PGP</value>
+                    </entry>
+                    <entry>
+                        <key>allow-weak-crypto</key>
+                        <value>not-allowed</value>
+                    </entry>
+                    <entry>
+                        <key>Password</key>
+                    </entry>
+                    <entry>
+                        <key>raw-key-hex</key>
+                    </entry>
+                    <entry>
+                        <key>public-keyring-file</key>
+                    </entry>
+                    <entry>
+                        <key>public-key-user-id</key>
+                    </entry>
+                    <entry>
+                        <key>private-keyring-file</key>
+                        <value>#{GPG Private Keyring File}</value>
+                    </entry>
+                    <entry>
+                        <key>private-keyring-passphrase</key>
+                    </entry>
+                    <entry>
+                        <key>pgp-symmetric-cipher</key>
+                        <value>9</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>DeCryptContent</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.EncryptContent</type>
+        </processors>
+        <processors>
+            <id>871e8a98-bf5a-3a2b-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1840.0</x>
+                <y>1328.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Directory</key>
+                        <value>
+                            <name>Directory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Conflict Resolution Strategy</key>
+                        <value>
+                            <name>Conflict Resolution Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Create Missing Directories</key>
+                        <value>
+                            <name>Create Missing Directories</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Count</key>
+                        <value>
+                            <name>Maximum File Count</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Last Modified Time</key>
+                        <value>
+                            <name>Last Modified Time</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Permissions</key>
+                        <value>
+                            <name>Permissions</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Owner</key>
+                        <value>
+                            <name>Owner</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Group</key>
+                        <value>
+                            <name>Group</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Directory</key>
+                        <value>${DataFileWorkingDirectory}</value>
+                    </entry>
+                    <entry>
+                        <key>Conflict Resolution Strategy</key>
+                        <value>fail</value>
+                    </entry>
+                    <entry>
+                        <key>Create Missing Directories</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Count</key>
+                    </entry>
+                    <entry>
+                        <key>Last Modified Time</key>
+                    </entry>
+                    <entry>
+                        <key>Permissions</key>
+                    </entry>
+                    <entry>
+                        <key>Owner</key>
+                    </entry>
+                    <entry>
+                        <key>Group</key>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>SaveSummaryReportPutFile</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.PutFile</type>
+        </processors>
+        <processors>
+            <id>8e2bb25c-2b1c-3c6b-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2344.0</x>
+                <y>1336.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>SMTP Hostname</key>
+                        <value>
+                            <name>SMTP Hostname</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Port</key>
+                        <value>
+                            <name>SMTP Port</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Username</key>
+                        <value>
+                            <name>SMTP Username</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Password</key>
+                        <value>
+                            <name>SMTP Password</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Auth</key>
+                        <value>
+                            <name>SMTP Auth</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP TLS</key>
+                        <value>
+                            <name>SMTP TLS</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Socket Factory</key>
+                        <value>
+                            <name>SMTP Socket Factory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP X-Mailer Header</key>
+                        <value>
+                            <name>SMTP X-Mailer Header</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>attribute-name-regex</key>
+                        <value>
+                            <name>attribute-name-regex</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Content Type</key>
+                        <value>
+                            <name>Content Type</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>From</key>
+                        <value>
+                            <name>From</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>To</key>
+                        <value>
+                            <name>To</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>CC</key>
+                        <value>
+                            <name>CC</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>BCC</key>
+                        <value>
+                            <name>BCC</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Subject</key>
+                        <value>
+                            <name>Subject</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Message</key>
+                        <value>
+                            <name>Message</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>email-ff-content-as-message</key>
+                        <value>
+                            <name>email-ff-content-as-message</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Attach File</key>
+                        <value>
+                            <name>Attach File</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Include All Attributes In Message</key>
+                        <value>
+                            <name>Include All Attributes In Message</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>SMTP Hostname</key>
+                        <value>#{SMTP hostname}</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Port</key>
+                        <value>25</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Username</key>
+                    </entry>
+                    <entry>
+                        <key>SMTP Password</key>
+                    </entry>
+                    <entry>
+                        <key>SMTP Auth</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP TLS</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Socket Factory</key>
+                        <value>javax.net.ssl.SSLSocketFactory</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP X-Mailer Header</key>
+                        <value>NiFi</value>
+                    </entry>
+                    <entry>
+                        <key>attribute-name-regex</key>
+                    </entry>
+                    <entry>
+                        <key>Content Type</key>
+                        <value>text/plain</value>
+                    </entry>
+                    <entry>
+                        <key>From</key>
+                        <value>#{SMTPFromName}</value>
+                    </entry>
+                    <entry>
+                        <key>To</key>
+                        <value>#{ReviewDraftSummaryReportEmailToNotify}</value>
+                    </entry>
+                    <entry>
+                        <key>CC</key>
+                    </entry>
+                    <entry>
+                        <key>BCC</key>
+                    </entry>
+                    <entry>
+                        <key>Subject</key>
+                        <value>Misformatted encryption key email</value>
+                    </entry>
+                    <entry>
+                        <key>Message</key>
+                    </entry>
+                    <entry>
+                        <key>email-ff-content-as-message</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Attach File</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Include All Attributes In Message</key>
+                        <value>false</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>PleaseReviewReportSummary</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>DISABLED</state>
+            <style>
+                <entry>
+                    <key>background-color</key>
+                    <value>#0dfcf4</value>
+                </entry>
+            </style>
+            <type>org.apache.nifi.processors.standard.PutEmail</type>
+        </processors>
+        <processors>
+            <id>9258e0e8-178d-366a-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2568.0</x>
+                <y>88.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>SMTP Hostname</key>
+                        <value>
+                            <name>SMTP Hostname</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Port</key>
+                        <value>
+                            <name>SMTP Port</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Username</key>
+                        <value>
+                            <name>SMTP Username</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Password</key>
+                        <value>
+                            <name>SMTP Password</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Auth</key>
+                        <value>
+                            <name>SMTP Auth</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP TLS</key>
+                        <value>
+                            <name>SMTP TLS</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Socket Factory</key>
+                        <value>
+                            <name>SMTP Socket Factory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>SMTP X-Mailer Header</key>
+                        <value>
+                            <name>SMTP X-Mailer Header</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>attribute-name-regex</key>
+                        <value>
+                            <name>attribute-name-regex</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Content Type</key>
+                        <value>
+                            <name>Content Type</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>From</key>
+                        <value>
+                            <name>From</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>To</key>
+                        <value>
+                            <name>To</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>CC</key>
+                        <value>
+                            <name>CC</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>BCC</key>
+                        <value>
+                            <name>BCC</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Subject</key>
+                        <value>
+                            <name>Subject</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Message</key>
+                        <value>
+                            <name>Message</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>email-ff-content-as-message</key>
+                        <value>
+                            <name>email-ff-content-as-message</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Attach File</key>
+                        <value>
+                            <name>Attach File</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Include All Attributes In Message</key>
+                        <value>
+                            <name>Include All Attributes In Message</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>SMTP Hostname</key>
+                        <value>#{SMTP hostname}</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Port</key>
+                        <value>25</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Username</key>
+                    </entry>
+                    <entry>
+                        <key>SMTP Password</key>
+                    </entry>
+                    <entry>
+                        <key>SMTP Auth</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP TLS</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP Socket Factory</key>
+                        <value>javax.net.ssl.SSLSocketFactory</value>
+                    </entry>
+                    <entry>
+                        <key>SMTP X-Mailer Header</key>
+                        <value>NiFi</value>
+                    </entry>
+                    <entry>
+                        <key>attribute-name-regex</key>
+                    </entry>
+                    <entry>
+                        <key>Content Type</key>
+                        <value>text/plain</value>
+                    </entry>
+                    <entry>
+                        <key>From</key>
+                        <value>#{SMTPFromName}</value>
+                    </entry>
+                    <entry>
+                        <key>To</key>
+                        <value>#{UnableToDecryptAESEmailToNotify}</value>
+                    </entry>
+                    <entry>
+                        <key>CC</key>
+                    </entry>
+                    <entry>
+                        <key>BCC</key>
+                    </entry>
+                    <entry>
+                        <key>Subject</key>
+                        <value>Unable to decrypt datafile using passphrase.</value>
+                    </entry>
+                    <entry>
+                        <key>Message</key>
+                    </entry>
+                    <entry>
+                        <key>email-ff-content-as-message</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Attach File</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>Include All Attributes In Message</key>
+                        <value>false</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>ErrorTryingToDecrypt</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>DISABLED</state>
+            <style>
+                <entry>
+                    <key>background-color</key>
+                    <value>#0dfcf4</value>
+                </entry>
+            </style>
+            <type>org.apache.nifi.processors.standard.PutEmail</type>
+        </processors>
+        <processors>
+            <id>a4a25987-6f9b-3238-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>576.0</x>
+                <y>728.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>
+                            <name>Routing Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>NeedsGPGDecrypting</key>
+                        <value>
+                            <name>NeedsGPGDecrypting</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>Route to Property name</value>
+                    </entry>
+                    <entry>
+                        <key>NeedsGPGDecrypting</key>
+                        <value>${RequiresGPGDecryption:and(${HasBeenGPGDecrypted:equals('true'):not()}):and(${IsDataFile})}</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>CheckIfGPGDecryptingIsNeededRouteOnAttribute</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>NeedsGPGDecrypting</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>unmatched</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
+        </processors>
+        <processors>
+            <id>a4efe4fe-42f8-388f-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>760.0</x>
+                <y>64.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>attribute-list</key>
+                        <value>
+                            <name>attribute-list</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>attributes-regex</key>
+                        <value>
+                            <name>attributes-regex</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>destination</key>
+                        <value>
+                            <name>destination</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>include-core-attributes</key>
+                        <value>
+                            <name>include-core-attributes</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>null-value</key>
+                        <value>
+                            <name>null-value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>include-schema</key>
+                        <value>
+                            <name>include-schema</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>attribute-list</key>
+                        <value>EncryptionKey</value>
+                    </entry>
+                    <entry>
+                        <key>attributes-regex</key>
+                    </entry>
+                    <entry>
+                        <key>destination</key>
+                        <value>flowfile-content</value>
+                    </entry>
+                    <entry>
+                        <key>include-core-attributes</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>null-value</key>
+                        <value>false</value>
+                    </entry>
+                    <entry>
+                        <key>include-schema</key>
+                        <value>false</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>AttributesToCSV</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.AttributesToCSV</type>
+        </processors>
+        <processors>
+            <id>af9a8f31-b1eb-3c71-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1432.0</x>
+                <y>392.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>
+                            <name>Routing Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>NeedsAESDecrypting</key>
+                        <value>
+                            <name>NeedsAESDecrypting</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>UnEncryptedDataFile</key>
+                        <value>
+                            <name>UnEncryptedDataFile</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>Route to Property name</value>
+                    </entry>
+                    <entry>
+                        <key>NeedsAESDecrypting</key>
+                        <value>${RequiresAESDecryption:equals('true')}</value>
+                    </entry>
+                    <entry>
+                        <key>UnEncryptedDataFile</key>
+                        <value>${IsUnEncryptedDataFile:equals('true'):or(${RequiresGPGDecryption:equals('true')})}</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>RouteOnAttribute</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>NeedsAESDecrypting</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>UnEncryptedDataFile</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>unmatched</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
+        </processors>
+        <processors>
+            <id>b9986daf-1164-3069-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2336.0</x>
+                <y>1136.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>
+                            <name>Regular Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>
+                            <name>Replacement Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <name>Character Set</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <name>Maximum Buffer Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>
+                            <name>Replacement Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>
+                            <name>Evaluation Mode</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>
+                            <name>Line-by-Line Evaluation Mode</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>^\*remove.*\n</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value></value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>Regex Replace</value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>Line-by-Line</value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>All</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>FilterOutRemoveMeLinesReplaceText</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+        </processors>
+        <processors>
+            <id>c2cac570-4541-31f3-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1832.0</x>
+                <y>896.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>argumentsStrategy</key>
+                        <value>
+                            <name>argumentsStrategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Command Arguments</key>
+                        <value>
+                            <name>Command Arguments</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Command Path</key>
+                        <value>
+                            <name>Command Path</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Ignore STDIN</key>
+                        <value>
+                            <name>Ignore STDIN</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Working Directory</key>
+                        <value>
+                            <name>Working Directory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Argument Delimiter</key>
+                        <value>
+                            <name>Argument Delimiter</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Output Destination Attribute</key>
+                        <value>
+                            <name>Output Destination Attribute</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Max Attribute Length</key>
+                        <value>
+                            <name>Max Attribute Length</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>argumentsStrategy</key>
+                        <value>Command Arguments Property</value>
+                    </entry>
+                    <entry>
+                        <key>Command Arguments</key>
+                        <value>${DataFileWorkingDirectory};${RequiresAESDecryption:equals('true')}</value>
+                    </entry>
+                    <entry>
+                        <key>Command Path</key>
+                        <value>#{CustomScriptsDirectory}/report_generator</value>
+                    </entry>
+                    <entry>
+                        <key>Ignore STDIN</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Working Directory</key>
+                        <value>#{CustomScriptsDirectory}</value>
+                    </entry>
+                    <entry>
+                        <key>Argument Delimiter</key>
+                        <value>;</value>
+                    </entry>
+                    <entry>
+                        <key>Output Destination Attribute</key>
+                    </entry>
+                    <entry>
+                        <key>Max Attribute Length</key>
+                        <value>256</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>GenerateSummaryReportExecuteStreamCommand</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>nonzero status</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>original</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>output stream</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.ExecuteStreamCommand</type>
+        </processors>
+        <processors>
+            <id>d62310e0-3696-3faf-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1416.0</x>
+                <y>808.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Directory</key>
+                        <value>
+                            <name>Directory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Conflict Resolution Strategy</key>
+                        <value>
+                            <name>Conflict Resolution Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Create Missing Directories</key>
+                        <value>
+                            <name>Create Missing Directories</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Count</key>
+                        <value>
+                            <name>Maximum File Count</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Last Modified Time</key>
+                        <value>
+                            <name>Last Modified Time</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Permissions</key>
+                        <value>
+                            <name>Permissions</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Owner</key>
+                        <value>
+                            <name>Owner</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Group</key>
+                        <value>
+                            <name>Group</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Directory</key>
+                        <value>${DataFileWorkingDirectory}</value>
+                    </entry>
+                    <entry>
+                        <key>Conflict Resolution Strategy</key>
+                        <value>fail</value>
+                    </entry>
+                    <entry>
+                        <key>Create Missing Directories</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum File Count</key>
+                    </entry>
+                    <entry>
+                        <key>Last Modified Time</key>
+                    </entry>
+                    <entry>
+                        <key>Permissions</key>
+                    </entry>
+                    <entry>
+                        <key>Owner</key>
+                    </entry>
+                    <entry>
+                        <key>Group</key>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>PutFile</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.PutFile</type>
+        </processors>
+        <processors>
+            <id>ee30be30-37ea-343c-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1840.0</x>
+                <y>1136.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-update-attribute-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Delete Attributes Expression</key>
+                        <value>
+                            <name>Delete Attributes Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Store State</key>
+                        <value>
+                            <name>Store State</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Stateful Variables Initial Value</key>
+                        <value>
+                            <name>Stateful Variables Initial Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>canonical-value-lookup-cache-size</key>
+                        <value>
+                            <name>canonical-value-lookup-cache-size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>filename</key>
+                        <value>
+                            <name>filename</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Delete Attributes Expression</key>
+                    </entry>
+                    <entry>
+                        <key>Store State</key>
+                        <value>Do not store state</value>
+                    </entry>
+                    <entry>
+                        <key>Stateful Variables Initial Value</key>
+                    </entry>
+                    <entry>
+                        <key>canonical-value-lookup-cache-size</key>
+                        <value>100</value>
+                    </entry>
+                    <entry>
+                        <key>filename</key>
+                        <value>${SummaryReportName}</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>SetReportFIlenameUpdateAttribute</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+        </processors>
+        <processors>
+            <id>f288372c-325a-3e68-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>960.0</x>
+                <y>1192.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-update-attribute-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Delete Attributes Expression</key>
+                        <value>
+                            <name>Delete Attributes Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Store State</key>
+                        <value>
+                            <name>Store State</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Stateful Variables Initial Value</key>
+                        <value>
+                            <name>Stateful Variables Initial Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>canonical-value-lookup-cache-size</key>
+                        <value>
+                            <name>canonical-value-lookup-cache-size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>DataFileWorkingDirectory</key>
+                        <value>
+                            <name>DataFileWorkingDirectory</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>HasBeenDecrypted</key>
+                        <value>
+                            <name>HasBeenDecrypted</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>HasBeenGPGDecrypted</key>
+                        <value>
+                            <name>HasBeenGPGDecrypted</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Delete Attributes Expression</key>
+                    </entry>
+                    <entry>
+                        <key>Store State</key>
+                        <value>Do not store state</value>
+                    </entry>
+                    <entry>
+                        <key>Stateful Variables Initial Value</key>
+                    </entry>
+                    <entry>
+                        <key>canonical-value-lookup-cache-size</key>
+                        <value>100</value>
+                    </entry>
+                    <entry>
+                        <key>DataFileWorkingDirectory</key>
+                        <value>#{SummaryReportDirectory}/recvd_${DataDateStamp:replaceAll('[^a-zA-Z0-9]','')}${SendingUser:replaceAll('[^a-zA-Z0-9]','')}</value>
+                    </entry>
+                    <entry>
+                        <key>HasBeenDecrypted</key>
+                        <value>true</value>
+                    </entry>
+                    <entry>
+                        <key>HasBeenGPGDecrypted</key>
+                        <value>true</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>MarkAsDecryptedAttribute</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+        </processors>
+    </snippet>
+    <timestamp>02/05/2020 17:46:01 UTC</timestamp>
+</template>

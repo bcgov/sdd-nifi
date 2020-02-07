@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>parameterized and added labels</description>
+    <description>fixes for AES decryption</description>
     <groupId>159e622c-0170-1000-f0d9-75519556d804</groupId>
-    <name>SDD-RP-SecureZone-v1.1</name>
+    <name>SDD-RP-SecureZone-v1.3</name>
     <snippet>
         <connections>
             <id>059e7dd8-9552-376c-0000-000000000000</id>
@@ -1270,11 +1270,11 @@
                     </entry>
                     <entry>
                         <key>Command Arguments</key>
-                        <value>${DataFileName}</value>
+                        <value>${filename}</value>
                     </entry>
                     <entry>
                         <key>Command Path</key>
-                        <value>/opt/nifi/nifi-current/nifi_custom_scripts/decrypt_encryption3.sh</value>
+                        <value>#{CustomScriptsDirectory}/decrypt_encryption3.sh</value>
                     </entry>
                     <entry>
                         <key>Ignore STDIN</key>
@@ -2517,7 +2517,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>output stream</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExecuteStreamCommand</type>
         </processors>
@@ -2831,5 +2831,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/05/2020 17:46:01 UTC</timestamp>
+    <timestamp>02/05/2020 21:29:57 UTC</timestamp>
 </template>

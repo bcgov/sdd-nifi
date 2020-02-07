@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>Parameterized and added labels</description>
+    <description>remove email inclusion in files (notify only); change email data file label to "Filename"</description>
     <groupId>159e00e7-0170-1000-d918-f1fb9234b88e</groupId>
-    <name>SDD-RP-StagingZone-v1.1</name>
+    <name>SDD-RP-StagingZone-v1.3</name>
     <snippet>
         <connections>
             <id>0282bb94-9575-3ba7-0000-000000000000</id>
@@ -25,31 +25,6 @@
             <source>
                 <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
                 <id>6c28b3ff-6aa6-3b11-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
-            <id>0eab21f8-32f8-33ea-0000-000000000000</id>
-            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>6c28b3ff-6aa6-3b11-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>success</selectedRelationships>
-            <source>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>c1200f95-8b22-3a87-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
@@ -650,7 +625,7 @@
             </position>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>ToRedZone</name>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <type>OUTPUT_PORT</type>
         </outputPorts>
         <processors>
@@ -1644,7 +1619,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.FetchFile</type>
         </processors>
@@ -1748,7 +1723,7 @@
                     </entry>
                     <entry>
                         <key>releasable-flowfile-count</key>
-                        <value>${IsSFTPTransfer:equals('true'):ifElse(2,3)}</value>
+                        <value>${IsSFTPTransfer:equals('true'):ifElse(1,2)}</value>
                     </entry>
                     <entry>
                         <key>expiration-duration</key>
@@ -1793,7 +1768,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>wait</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.Wait</type>
         </processors>
@@ -2174,7 +2149,7 @@
                 <autoTerminate>true</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>DISABLED</state>
             <style>
                 <entry>
                     <key>background-color</key>
@@ -2269,7 +2244,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
         </processors>
@@ -2355,7 +2330,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
@@ -2479,6 +2454,12 @@
                         </value>
                     </entry>
                     <entry>
+                        <key>Notes</key>
+                        <value>
+                            <name>Notes</name>
+                        </value>
+                    </entry>
+                    <entry>
                         <key>OriginalFileName</key>
                         <value>
                             <name>OriginalFileName</name>
@@ -2557,11 +2538,15 @@
                     </entry>
                     <entry>
                         <key>DataFileName</key>
-                        <value>Data File Name: ([a-zA-Z0-9\._]+)</value>
+                        <value>Filename: ([a-zA-Z0-9\._]+)</value>
                     </entry>
                     <entry>
                         <key>EncryptionKey</key>
                         <value>Encryption Key: ([^\r\n]+)</value>
+                    </entry>
+                    <entry>
+                        <key>Notes</key>
+                        <value>Notes: ([^\r\n]+)</value>
                     </entry>
                     <entry>
                         <key>OriginalFileName</key>
@@ -2587,7 +2572,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExtractText</type>
         </processors>
@@ -2672,7 +2657,7 @@
                     </entry>
                     <entry>
                         <key>attribute-cache-regex</key>
-                        <value>EncryptionKey|SendingUser|DataDateStamp|OriginalFileName</value>
+                        <value>EncryptionKey|SendingUser|DataDateStamp|OriginalFileName|Notes</value>
                     </entry>
                 </properties>
                 <runDurationMillis>0</runDurationMillis>
@@ -2687,10 +2672,10 @@
                 <name>failure</name>
             </relationships>
             <relationships>
-                <autoTerminate>false</autoTerminate>
+                <autoTerminate>true</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.Notify</type>
         </processors>
@@ -2794,7 +2779,7 @@
                     </entry>
                     <entry>
                         <key>File Filter</key>
-                        <value>testencrypt.gpg|templateFileSampleGPGTest.txt</value>
+                        <value>[^\.].*</value>
                     </entry>
                     <entry>
                         <key>Path Filter</key>
@@ -3037,7 +3022,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExtractText</type>
         </processors>
@@ -3570,7 +3555,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
         </processors>
@@ -3661,5 +3646,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/05/2020 17:05:54 UTC</timestamp>
+    <timestamp>02/05/2020 21:32:02 UTC</timestamp>
 </template>

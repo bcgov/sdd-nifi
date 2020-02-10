@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>parametized getfile input</description>
+    <description>Parameterized email fields</description>
     <groupId>159e00e7-0170-1000-d918-f1fb9234b88e</groupId>
-    <name>SDD-RP-StagingZone-v1.4</name>
+    <name>SDD-RP-StagingZone-v1.5</name>
     <snippet>
         <connections>
             <id>0282bb94-9575-3ba7-0000-000000000000</id>
@@ -924,7 +924,7 @@
                     </entry>
                     <entry>
                         <key>Subject</key>
-                        <value>Misformatted encryption key email</value>
+                        <value>#{TemplateFieldsMisformattedEmailSubject}</value>
                     </entry>
                     <entry>
                         <key>Message</key>
@@ -1472,14 +1472,14 @@
                     </entry>
                     <entry>
                         <key>Subject</key>
-                        <value>Misformatted encryption key email</value>
+                        <value>#{TemplateFieldsMisformattedEmailSubject}</value>
                     </entry>
                     <entry>
                         <key>Message</key>
                     </entry>
                     <entry>
                         <key>email-ff-content-as-message</key>
-                        <value>true</value>
+                        <value>false</value>
                     </entry>
                     <entry>
                         <key>Attach File</key>
@@ -2106,7 +2106,7 @@
                     </entry>
                     <entry>
                         <key>To</key>
-                        <value>#{ExpiredDataFilesEmailToNotify}</value>
+                        <value>#{DataFileWaitExpiredEmailToNotify}</value>
                     </entry>
                     <entry>
                         <key>CC</key>
@@ -2116,14 +2116,14 @@
                     </entry>
                     <entry>
                         <key>Subject</key>
-                        <value>Misformatted encryption key email</value>
+                        <value>#{DataFileWaitExpiredEmailSubject}</value>
                     </entry>
                     <entry>
                         <key>Message</key>
                     </entry>
                     <entry>
                         <key>email-ff-content-as-message</key>
-                        <value>true</value>
+                        <value>false</value>
                     </entry>
                     <entry>
                         <key>Attach File</key>
@@ -3450,7 +3450,7 @@
                     </entry>
                     <entry>
                         <key>To</key>
-                        <value>#{TemplateFieldsSuccessfullyAbstractedEmailToNotify}</value>
+                        <value>#{TemplateFieldsSuccessfullyExtractedEmailToNotify}</value>
                     </entry>
                     <entry>
                         <key>CC</key>
@@ -3460,7 +3460,7 @@
                     </entry>
                     <entry>
                         <key>Subject</key>
-                        <value>Misformatted encryption key email</value>
+                        <value>#{TemplateFieldsSuccessfullyExtractedEmailSubject}</value>
                     </entry>
                     <entry>
                         <key>Message</key>
@@ -3646,5 +3646,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/06/2020 06:49:31 UTC</timestamp>
+    <timestamp>02/06/2020 11:30:48 UTC</timestamp>
 </template>

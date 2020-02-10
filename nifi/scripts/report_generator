@@ -26,11 +26,29 @@ fi
 find $path -type f \( -name "*.csv" -or -name "*.CSV" \) -print0 | sort |
 while IFS= read -r -d '' file; do
 	origfile=$(find $path -name $(basename $file .csv)${ext})
-	dos2unix $file > /dev/null
+	dos2unix -q $file
 	#sanitize_csv $file
 	size=$(du -h $origfile | cut  -f1)B
+	encoding=$(file -b --mime-encoding $file)
 	records=$(wc -l < $file)
-	hcolumns=$(head -1 $file | awk -F$sep '{print NF}')
+	hcolumnsbycomma=$(head -1 $file | awk -F"," '{print NF}')
+	hcolumnsbypipe=$(head -1 $file | awk -F"|" '{print NF}')
+	hcolumnsbyhat=$(head -1 $file | awk -F"^" '{print NF}')
+	if [ "$hcolumnsbycomma -gt $hcolumnsbypipe" -a "$hcolumnsbycomma -gt $hcolumnsbyhat" ]
+	then
+		hcolumns=$hcolumnsbycomma
+		sep=","
+	else
+		if [ "$hcolumnsbypipe -gt $hcolumnsbycomma" -a "$hcolumnsbypipe -gt $hcolumnsbyhat" ]
+		then
+			hcolumns=$hcolumnsbypipe
+			sep="|"
+		else
+			hcolumns=$hcolumnsbyhat
+			sep="^"
+		fi
+	fi
+	#hcolumns=$(head -1 $file | awk -F$sep '{print NF}')
 	phnlines=$(./phn_finder $file | wc -l)    
 	phonelines=$(./phone_finder $file | wc -l)
 	./chkfreq $file >  $(basename $file .csv).tab
@@ -40,7 +58,9 @@ while IFS= read -r -d '' file; do
 	md5sum=$(md5sum $file) 
 	echo "X) $origfile"
 	echo "- size: $size"
+	echo "- encoding: $encoding"
 	echo "- contains $records records (including header)"
+	echo "- delimiter: $sep"
 	echo "- md5sum: $md5sum"
 	echo "******"
 	./field_summary_csv $file $sep | ./highlight *remove

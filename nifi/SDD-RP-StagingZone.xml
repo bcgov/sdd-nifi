@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>remove email inclusion in files (notify only); change email data file label to "Filename"</description>
+    <description>parametized getfile input</description>
     <groupId>159e00e7-0170-1000-d918-f1fb9234b88e</groupId>
-    <name>SDD-RP-StagingZone-v1.3</name>
+    <name>SDD-RP-StagingZone-v1.4</name>
     <snippet>
         <connections>
             <id>0282bb94-9575-3ba7-0000-000000000000</id>
@@ -625,7 +625,7 @@
             </position>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>ToRedZone</name>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <type>OUTPUT_PORT</type>
         </outputPorts>
         <processors>
@@ -877,7 +877,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -1425,7 +1425,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -1578,7 +1578,7 @@
                     </entry>
                     <entry>
                         <key>Completion Strategy</key>
-                        <value>None</value>
+                        <value>#{Fetch File Completion Strategy}</value>
                     </entry>
                     <entry>
                         <key>Move Destination Directory</key>
@@ -1619,7 +1619,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.FetchFile</type>
         </processors>
@@ -1768,7 +1768,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>wait</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.Wait</type>
         </processors>
@@ -1868,7 +1868,7 @@
                 <properties>
                     <entry>
                         <key>Input Directory</key>
-                        <value>/opt/nifi/nifi-current/encrypted_input/email_sample</value>
+                        <value>#{Email Test Input Directory}</value>
                     </entry>
                     <entry>
                         <key>File Filter</key>
@@ -2069,7 +2069,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -2244,7 +2244,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
         </processors>
@@ -2330,7 +2330,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
@@ -2572,7 +2572,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExtractText</type>
         </processors>
@@ -2675,7 +2675,7 @@
                 <autoTerminate>true</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.Notify</type>
         </processors>
@@ -3022,7 +3022,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExtractText</type>
         </processors>
@@ -3413,7 +3413,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -3555,7 +3555,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
         </processors>
@@ -3646,5 +3646,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/05/2020 21:32:02 UTC</timestamp>
+    <timestamp>02/06/2020 06:49:31 UTC</timestamp>
 </template>

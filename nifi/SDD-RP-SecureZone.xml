@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>fixes for AES decryption</description>
+    <description>appended data provider notes to report</description>
     <groupId>159e622c-0170-1000-f0d9-75519556d804</groupId>
-    <name>SDD-RP-SecureZone-v1.3</name>
+    <name>SDD-RP-SecureZone-v1.4</name>
     <snippet>
         <connections>
             <id>059e7dd8-9552-376c-0000-000000000000</id>
@@ -75,6 +75,56 @@
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>06eab878-3409-305d-0000-000000000000</id>
                 <type>INPUT_PORT</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>12f15631-1b4f-3ffb-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>b9986daf-1164-3069-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>adc1aa46-c826-3a33-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>136aed10-1c64-3a93-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>adc1aa46-c826-3a33-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>output stream</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>c2cac570-4541-31f3-0000-000000000000</id>
+                <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
         </connections>
@@ -199,6 +249,31 @@
             <source>
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>f288372c-325a-3e68-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>4e956488-bf7a-3d86-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>ee30be30-37ea-343c-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>adc1aa46-c826-3a33-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
@@ -329,31 +404,6 @@
             <zIndex>0</zIndex>
         </connections>
         <connections>
-            <id>978cbec9-4d6f-3c85-0000-000000000000</id>
-            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
-                <id>ee30be30-37ea-343c-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>output stream</selectedRelationships>
-            <source>
-                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
-                <id>c2cac570-4541-31f3-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
             <id>b45b31ae-71c3-36a7-0000-000000000000</id>
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -374,31 +424,6 @@
             <source>
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>a4a25987-6f9b-3238-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
-            <id>c04f11f9-aa2e-311b-0000-000000000000</id>
-            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
-                <id>b9986daf-1164-3069-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>output stream</selectedRelationships>
-            <source>
-                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
-                <id>c2cac570-4541-31f3-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
@@ -1105,7 +1130,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -1725,7 +1750,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -1956,7 +1981,7 @@
                     </entry>
                     <entry>
                         <key>SMTP Port</key>
-                        <value>25</value>
+                        <value>#{SMTP Port}</value>
                     </entry>
                     <entry>
                         <key>SMTP Username</key>
@@ -2207,6 +2232,118 @@
             <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.AttributesToCSV</type>
+        </processors>
+        <processors>
+            <id>adc1aa46-c826-3a33-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>2344.0</x>
+                <y>920.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>
+                            <name>Regular Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>
+                            <name>Replacement Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <name>Character Set</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <name>Maximum Buffer Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>
+                            <name>Replacement Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>
+                            <name>Evaluation Mode</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>
+                            <name>Line-by-Line Evaluation Mode</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>(?s)(^.*$)</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>Notes: ${Notes}</value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>Append</value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>Entire text</value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>All</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>AppendDataProviderNotesToReport</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>RUNNING</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.ReplaceText</type>
         </processors>
         <processors>
             <id>af9a8f31-b1eb-3c71-0000-000000000000</id>
@@ -2831,5 +2968,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/05/2020 21:29:57 UTC</timestamp>
+    <timestamp>02/06/2020 06:37:00 UTC</timestamp>
 </template>

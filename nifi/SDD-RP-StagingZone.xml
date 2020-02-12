@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>Parameterized email fields</description>
+    <description>alter when email for successful extraction from email is sent</description>
     <groupId>159e00e7-0170-1000-d918-f1fb9234b88e</groupId>
-    <name>SDD-RP-StagingZone-v1.5</name>
+    <name>SDD-RP-StagingZone-v1.6</name>
     <snippet>
         <connections>
             <id>0282bb94-9575-3ba7-0000-000000000000</id>
@@ -288,31 +288,6 @@
             <zIndex>0</zIndex>
         </connections>
         <connections>
-            <id>a4710a44-dd37-39fc-0000-000000000000</id>
-            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>cf643bde-89a4-32a9-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>matched</selectedRelationships>
-            <source>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>c0ffe4b9-d8d8-3c44-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
             <id>a8cc83bd-f8fd-3ee5-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -464,6 +439,31 @@
             <zIndex>0</zIndex>
         </connections>
         <connections>
+            <id>f1d2bc17-9d5b-3a1d-0000-000000000000</id>
+            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
+                <id>cf643bde-89a4-32a9-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>IsCorrectlyFormatted</selectedRelationships>
+            <source>
+                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
+                <id>dcd2a838-f6b4-358a-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
             <id>f7417cac-5676-3bb1-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -590,7 +590,7 @@
                 <y>0.0</y>
             </position>
             <height>576.0</height>
-            <label>Listen for internal template email.  Only trigger data files listed to be moved to the secure zone.</label>
+            <label>Listen for internal template email.  Only trigger data file specified to be moved to the secure zone.</label>
             <style>
                 <entry>
                     <key>font-size</key>
@@ -623,6 +623,7 @@
                 <x>2584.0</x>
                 <y>888.0</y>
             </position>
+            <comments></comments>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>ToRedZone</name>
             <state>STOPPED</state>
@@ -633,7 +634,7 @@
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
                 <x>32.0</x>
-                <y>248.0</y>
+                <y>48.0</y>
             </position>
             <bundle>
                 <artifact>nifi-email-nar</artifact>
@@ -739,7 +740,7 @@
             <id>0515dafc-3603-37db-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>1424.0</x>
+                <x>1448.0</x>
                 <y>64.0</y>
             </position>
             <bundle>
@@ -970,7 +971,7 @@
             <id>1846a0be-918e-384f-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>80.0</x>
+                <x>32.0</x>
                 <y>664.0</y>
             </position>
             <bundle>
@@ -1777,7 +1778,7 @@
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
                 <x>24.0</x>
-                <y>408.0</y>
+                <y>200.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2252,7 +2253,7 @@
             <id>ae64b899-8e68-396c-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>1192.0</x>
+                <x>1248.0</x>
                 <y>616.0</y>
             </position>
             <bundle>
@@ -2338,8 +2339,8 @@
             <id>c0ffe4b9-d8d8-3c44-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>672.0</x>
-                <y>352.0</y>
+                <x>680.0</x>
+                <y>56.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2683,7 +2684,7 @@
             <id>c580a5ba-e1c1-3d66-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>48.0</x>
+                <x>32.0</x>
                 <y>848.0</y>
             </position>
             <bundle>
@@ -3030,7 +3031,7 @@
             <id>c9759ec9-3731-3c04-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>56.0</x>
+                <x>32.0</x>
                 <y>1000.0</y>
             </position>
             <bundle>
@@ -3275,8 +3276,8 @@
             <id>cf643bde-89a4-32a9-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>328.0</x>
-                <y>56.0</y>
+                <x>1448.0</x>
+                <y>200.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3494,15 +3495,20 @@
                 <name>success</name>
             </relationships>
             <state>DISABLED</state>
-            <style/>
+            <style>
+                <entry>
+                    <key>background-color</key>
+                    <value>#0dfcf4</value>
+                </entry>
+            </style>
             <type>org.apache.nifi.processors.standard.PutEmail</type>
         </processors>
         <processors>
             <id>dcd2a838-f6b4-358a-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>776.0</x>
-                <y>64.0</y>
+                <x>672.0</x>
+                <y>352.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3563,7 +3569,7 @@
             <id>efaf7c77-d01f-3abc-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>568.0</x>
+                <x>632.0</x>
                 <y>648.0</y>
             </position>
             <bundle>
@@ -3646,5 +3652,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/06/2020 11:30:48 UTC</timestamp>
+    <timestamp>02/12/2020 00:14:35 UTC</timestamp>
 </template>

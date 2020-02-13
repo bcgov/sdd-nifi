@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>alter when email for successful extraction from email is sent</description>
+    <description>remove listfile and fetchfile; parameterized getfile</description>
     <groupId>159e00e7-0170-1000-d918-f1fb9234b88e</groupId>
-    <name>SDD-RP-StagingZone-v1.6</name>
+    <name>SDD-RP-StagingZone-v1.7</name>
     <snippet>
         <connections>
             <id>0282bb94-9575-3ba7-0000-000000000000</id>
@@ -61,8 +61,8 @@
             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
             <destination>
                 <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>5ac78880-6cd0-338e-0000-000000000000</id>
-                <type>PROCESSOR</type>
+                <id>89fa475f-1a94-39b6-0000-000000000000</id>
+                <type>OUTPUT_PORT</type>
             </destination>
             <flowFileExpiration>0 sec</flowFileExpiration>
             <labelIndex>1</labelIndex>
@@ -288,31 +288,6 @@
             <zIndex>0</zIndex>
         </connections>
         <connections>
-            <id>a8cc83bd-f8fd-3ee5-0000-000000000000</id>
-            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>96521f70-97a2-3a0a-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>success</selectedRelationships>
-            <source>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>c9759ec9-3731-3c04-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
             <id>b3115589-e802-3b08-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -409,31 +384,6 @@
             <source>
                 <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
                 <id>7ce5c77d-e0bb-32f1-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
-            <id>e0c84b45-b8e0-35ae-0000-000000000000</id>
-            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>89fa475f-1a94-39b6-0000-000000000000</id>
-                <type>OUTPUT_PORT</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>success</selectedRelationships>
-            <source>
-                <groupId>1c48a9a9-4e7d-3555-0000-000000000000</groupId>
-                <id>5ac78880-6cd0-338e-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
@@ -620,13 +570,13 @@
             <id>89fa475f-1a94-39b6-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
-                <x>2584.0</x>
-                <y>888.0</y>
+                <x>2088.0</x>
+                <y>928.0</y>
             </position>
             <comments></comments>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>ToRedZone</name>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <type>OUTPUT_PORT</type>
         </outputPorts>
         <processors>
@@ -1516,115 +1466,6 @@
             <type>org.apache.nifi.processors.standard.PutEmail</type>
         </processors>
         <processors>
-            <id>5ac78880-6cd0-338e-0000-000000000000</id>
-            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
-            <position>
-                <x>1984.0</x>
-                <y>904.0</y>
-            </position>
-            <bundle>
-                <artifact>nifi-standard-nar</artifact>
-                <group>org.apache.nifi</group>
-                <version>1.10.0</version>
-            </bundle>
-            <config>
-                <bulletinLevel>WARN</bulletinLevel>
-                <comments></comments>
-                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                <descriptors>
-                    <entry>
-                        <key>File to Fetch</key>
-                        <value>
-                            <name>File to Fetch</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Completion Strategy</key>
-                        <value>
-                            <name>Completion Strategy</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Move Destination Directory</key>
-                        <value>
-                            <name>Move Destination Directory</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Move Conflict Strategy</key>
-                        <value>
-                            <name>Move Conflict Strategy</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Log level when file not found</key>
-                        <value>
-                            <name>Log level when file not found</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Log level when permission denied</key>
-                        <value>
-                            <name>Log level when permission denied</name>
-                        </value>
-                    </entry>
-                </descriptors>
-                <executionNode>ALL</executionNode>
-                <lossTolerant>false</lossTolerant>
-                <penaltyDuration>30 sec</penaltyDuration>
-                <properties>
-                    <entry>
-                        <key>File to Fetch</key>
-                        <value>${absolute.path}/${filename}</value>
-                    </entry>
-                    <entry>
-                        <key>Completion Strategy</key>
-                        <value>#{Fetch File Completion Strategy}</value>
-                    </entry>
-                    <entry>
-                        <key>Move Destination Directory</key>
-                    </entry>
-                    <entry>
-                        <key>Move Conflict Strategy</key>
-                        <value>Rename</value>
-                    </entry>
-                    <entry>
-                        <key>Log level when file not found</key>
-                        <value>ERROR</value>
-                    </entry>
-                    <entry>
-                        <key>Log level when permission denied</key>
-                        <value>ERROR</value>
-                    </entry>
-                </properties>
-                <runDurationMillis>0</runDurationMillis>
-                <schedulingPeriod>0 sec</schedulingPeriod>
-                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                <yieldDuration>1 sec</yieldDuration>
-            </config>
-            <executionNodeRestricted>false</executionNodeRestricted>
-            <name>FetchFile</name>
-            <relationships>
-                <autoTerminate>true</autoTerminate>
-                <name>failure</name>
-            </relationships>
-            <relationships>
-                <autoTerminate>true</autoTerminate>
-                <name>not.found</name>
-            </relationships>
-            <relationships>
-                <autoTerminate>true</autoTerminate>
-                <name>permission.denied</name>
-            </relationships>
-            <relationships>
-                <autoTerminate>false</autoTerminate>
-                <name>success</name>
-            </relationships>
-            <state>STOPPED</state>
-            <style/>
-            <type>org.apache.nifi.processors.standard.FetchFile</type>
-        </processors>
-        <processors>
             <id>6c28b3ff-6aa6-3b11-0000-000000000000</id>
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
@@ -1769,7 +1610,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>wait</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.Wait</type>
         </processors>
@@ -2245,7 +2086,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
         </processors>
@@ -2331,7 +2172,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
@@ -2573,7 +2414,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExtractText</type>
         </processors>
@@ -2676,7 +2517,7 @@
                 <autoTerminate>true</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.Notify</type>
         </processors>
@@ -2685,7 +2526,7 @@
             <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
             <position>
                 <x>32.0</x>
-                <y>848.0</y>
+                <y>984.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2791,7 +2632,7 @@
                     </entry>
                     <entry>
                         <key>Keep Source File</key>
-                        <value>true</value>
+                        <value>#{Keep Source Data File}</value>
                     </entry>
                     <entry>
                         <key>Recurse Subdirectories</key>
@@ -3023,254 +2864,9 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.ExtractText</type>
-        </processors>
-        <processors>
-            <id>c9759ec9-3731-3c04-0000-000000000000</id>
-            <parentGroupId>1c48a9a9-4e7d-3555-0000-000000000000</parentGroupId>
-            <position>
-                <x>32.0</x>
-                <y>1000.0</y>
-            </position>
-            <bundle>
-                <artifact>nifi-standard-nar</artifact>
-                <group>org.apache.nifi</group>
-                <version>1.10.0</version>
-            </bundle>
-            <config>
-                <bulletinLevel>WARN</bulletinLevel>
-                <comments></comments>
-                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
-                <descriptors>
-                    <entry>
-                        <key>Input Directory</key>
-                        <value>
-                            <name>Input Directory</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>listing-strategy</key>
-                        <value>
-                            <name>listing-strategy</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Recurse Subdirectories</key>
-                        <value>
-                            <name>Recurse Subdirectories</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Input Directory Location</key>
-                        <value>
-                            <name>Input Directory Location</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>File Filter</key>
-                        <value>
-                            <name>File Filter</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Path Filter</key>
-                        <value>
-                            <name>Path Filter</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Include File Attributes</key>
-                        <value>
-                            <name>Include File Attributes</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Minimum File Age</key>
-                        <value>
-                            <name>Minimum File Age</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Maximum File Age</key>
-                        <value>
-                            <name>Maximum File Age</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Minimum File Size</key>
-                        <value>
-                            <name>Minimum File Size</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Maximum File Size</key>
-                        <value>
-                            <name>Maximum File Size</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>Ignore Hidden Files</key>
-                        <value>
-                            <name>Ignore Hidden Files</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>target-system-timestamp-precision</key>
-                        <value>
-                            <name>target-system-timestamp-precision</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>et-state-cache</key>
-                        <value>
-                            <identifiesControllerService>org.apache.nifi.distributed.cache.client.DistributedMapCacheClient</identifiesControllerService>
-                            <name>et-state-cache</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>et-time-window</key>
-                        <value>
-                            <name>et-time-window</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>et-initial-listing-target</key>
-                        <value>
-                            <name>et-initial-listing-target</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>et-node-identifier</key>
-                        <value>
-                            <name>et-node-identifier</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>track-performance</key>
-                        <value>
-                            <name>track-performance</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>max-performance-metrics</key>
-                        <value>
-                            <name>max-performance-metrics</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>max-operation-time</key>
-                        <value>
-                            <name>max-operation-time</name>
-                        </value>
-                    </entry>
-                    <entry>
-                        <key>max-listing-time</key>
-                        <value>
-                            <name>max-listing-time</name>
-                        </value>
-                    </entry>
-                </descriptors>
-                <executionNode>ALL</executionNode>
-                <lossTolerant>false</lossTolerant>
-                <penaltyDuration>30 sec</penaltyDuration>
-                <properties>
-                    <entry>
-                        <key>Input Directory</key>
-                        <value>#{Yellow Zone Record Processing Input Directory}</value>
-                    </entry>
-                    <entry>
-                        <key>listing-strategy</key>
-                        <value>timestamps</value>
-                    </entry>
-                    <entry>
-                        <key>Recurse Subdirectories</key>
-                        <value>true</value>
-                    </entry>
-                    <entry>
-                        <key>Input Directory Location</key>
-                        <value>Local</value>
-                    </entry>
-                    <entry>
-                        <key>File Filter</key>
-                        <value>[^\.].*</value>
-                    </entry>
-                    <entry>
-                        <key>Path Filter</key>
-                    </entry>
-                    <entry>
-                        <key>Include File Attributes</key>
-                        <value>true</value>
-                    </entry>
-                    <entry>
-                        <key>Minimum File Age</key>
-                        <value>0 sec</value>
-                    </entry>
-                    <entry>
-                        <key>Maximum File Age</key>
-                    </entry>
-                    <entry>
-                        <key>Minimum File Size</key>
-                        <value>0 B</value>
-                    </entry>
-                    <entry>
-                        <key>Maximum File Size</key>
-                    </entry>
-                    <entry>
-                        <key>Ignore Hidden Files</key>
-                        <value>true</value>
-                    </entry>
-                    <entry>
-                        <key>target-system-timestamp-precision</key>
-                        <value>auto-detect</value>
-                    </entry>
-                    <entry>
-                        <key>et-state-cache</key>
-                    </entry>
-                    <entry>
-                        <key>et-time-window</key>
-                        <value>3 hours</value>
-                    </entry>
-                    <entry>
-                        <key>et-initial-listing-target</key>
-                        <value>all</value>
-                    </entry>
-                    <entry>
-                        <key>et-node-identifier</key>
-                        <value>${hostname()}</value>
-                    </entry>
-                    <entry>
-                        <key>track-performance</key>
-                        <value>false</value>
-                    </entry>
-                    <entry>
-                        <key>max-performance-metrics</key>
-                        <value>100000</value>
-                    </entry>
-                    <entry>
-                        <key>max-operation-time</key>
-                        <value>10 secs</value>
-                    </entry>
-                    <entry>
-                        <key>max-listing-time</key>
-                        <value>3 mins</value>
-                    </entry>
-                </properties>
-                <runDurationMillis>0</runDurationMillis>
-                <schedulingPeriod>0 sec</schedulingPeriod>
-                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
-                <yieldDuration>1 sec</yieldDuration>
-            </config>
-            <executionNodeRestricted>false</executionNodeRestricted>
-            <name>ListFile</name>
-            <relationships>
-                <autoTerminate>false</autoTerminate>
-                <name>success</name>
-            </relationships>
-            <state>DISABLED</state>
-            <style/>
-            <type>org.apache.nifi.processors.standard.ListFile</type>
         </processors>
         <processors>
             <id>cf643bde-89a4-32a9-0000-000000000000</id>
@@ -3561,7 +3157,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>unmatched</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
         </processors>
@@ -3647,10 +3243,10 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/12/2020 00:14:35 UTC</timestamp>
+    <timestamp>02/12/2020 10:51:55 UTC</timestamp>
 </template>

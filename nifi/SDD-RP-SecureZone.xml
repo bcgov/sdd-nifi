@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>parameterized email fields</description>
+    <description>use replace for putfile instead of fail</description>
     <groupId>159e622c-0170-1000-f0d9-75519556d804</groupId>
-    <name>SDD-RP-SecureZone-v1.5</name>
+    <name>SDD-RP-SecureZone-v1.7</name>
     <snippet>
         <connections>
             <id>059e7dd8-9552-376c-0000-000000000000</id>
@@ -510,6 +510,7 @@
                 <x>0.0</x>
                 <y>672.0</y>
             </position>
+            <comments></comments>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>FromYellowZone</name>
             <state>RUNNING</state>
@@ -557,14 +558,14 @@
                 <y>352.0</y>
             </position>
             <height>512.0</height>
-            <label>When summary reports are approved (by moving them into the approved reports folder, send an email to stakeholders</label>
+            <label>When summary reports are approved (by moving them into the approved reports folder), send an email to stakeholders</label>
             <style>
                 <entry>
                     <key>font-size</key>
                     <value>12px</value>
                 </entry>
             </style>
-            <width>632.0</width>
+            <width>664.0</width>
         </labels>
         <labels>
             <id>43c90497-afd2-36b8-0000-000000000000</id>
@@ -1512,7 +1513,7 @@
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>STOPPED</state>
+            <state>RUNNING</state>
             <style/>
             <type>org.apache.nifi.processors.standard.EncryptContent</type>
         </processors>
@@ -1592,7 +1593,7 @@
                     </entry>
                     <entry>
                         <key>Conflict Resolution Strategy</key>
-                        <value>fail</value>
+                        <value>replace</value>
                     </entry>
                     <entry>
                         <key>Create Missing Directories</key>
@@ -2760,7 +2761,7 @@
                     </entry>
                     <entry>
                         <key>Conflict Resolution Strategy</key>
-                        <value>fail</value>
+                        <value>replace</value>
                     </entry>
                     <entry>
                         <key>Create Missing Directories</key>
@@ -3226,5 +3227,5 @@
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/06/2020 11:31:21 UTC</timestamp>
+    <timestamp>02/12/2020 10:45:50 UTC</timestamp>
 </template>

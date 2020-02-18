@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>add syslog entry</description>
+    <description>wipe of content for email notifications if not report</description>
     <groupId>159e622c-0170-1000-f0d9-75519556d804</groupId>
-    <name>SDD-RP-SecureZone-v2.1</name>
+    <name>SDD-RP-SecureZone-v2.2</name>
     <snippet>
         <connections>
             <id>0068a54b-3d5b-3380-0000-000000000000</id>
@@ -25,6 +25,31 @@
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>c9c73305-d913-3af8-0000-000000000000</id>
                 <type>FUNNEL</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>04ec1d3f-d159-3302-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>86af8e08-c246-33fb-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>unmatched</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>24c1b8c8-3e23-32fa-0000-000000000000</id>
+                <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
         </connections>
@@ -378,31 +403,6 @@
             <zIndex>0</zIndex>
         </connections>
         <connections>
-            <id>2a94470c-7650-34ae-0000-000000000000</id>
-            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
-            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-            <destination>
-                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
-                <id>bf26db1f-a861-33a9-0000-000000000000</id>
-                <type>OUTPUT_PORT</type>
-            </destination>
-            <flowFileExpiration>0 sec</flowFileExpiration>
-            <labelIndex>1</labelIndex>
-            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-            <name></name>
-            <selectedRelationships>success</selectedRelationships>
-            <source>
-                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
-                <id>e4ca7b17-0a1d-3f9e-0000-000000000000</id>
-                <type>PROCESSOR</type>
-            </source>
-            <zIndex>0</zIndex>
-        </connections>
-        <connections>
             <id>328b3519-5b7a-379b-0000-000000000000</id>
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -473,6 +473,31 @@
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>8ff8f355-48e1-34fd-0000-000000000000</id>
                 <type>FUNNEL</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>3cfc0412-871a-3652-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>24c1b8c8-3e23-32fa-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>e4ca7b17-0a1d-3f9e-0000-000000000000</id>
+                <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
         </connections>
@@ -572,6 +597,31 @@
             <source>
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>7fae9316-1c24-33d7-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>590e3914-0ff0-3221-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>bf26db1f-a861-33a9-0000-000000000000</id>
+                <type>OUTPUT_PORT</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>success</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>86af8e08-c246-33fb-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
@@ -683,11 +733,11 @@
             <backPressureObjectThreshold>10000</backPressureObjectThreshold>
             <bends>
                 <x>1795.2414855957031</x>
-                <y>1088.5868835449219</y>
+                <y>1344.5868835449219</y>
             </bends>
             <bends>
                 <x>1795.2414855957031</x>
-                <y>1138.5868835449219</y>
+                <y>1394.5868835449219</y>
             </bends>
             <destination>
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
@@ -730,6 +780,31 @@
             <source>
                 <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                 <id>d62310e0-3696-3faf-0000-000000000000</id>
+                <type>PROCESSOR</type>
+            </source>
+            <zIndex>0</zIndex>
+        </connections>
+        <connections>
+            <id>8d58f3df-7fe4-322e-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+            <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+            <destination>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>bf26db1f-a861-33a9-0000-000000000000</id>
+                <type>OUTPUT_PORT</type>
+            </destination>
+            <flowFileExpiration>0 sec</flowFileExpiration>
+            <labelIndex>1</labelIndex>
+            <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+            <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+            <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+            <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+            <name></name>
+            <selectedRelationships>IsReport</selectedRelationships>
+            <source>
+                <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                <id>24c1b8c8-3e23-32fa-0000-000000000000</id>
                 <type>PROCESSOR</type>
             </source>
             <zIndex>0</zIndex>
@@ -1295,7 +1370,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2120.0</x>
-                <y>528.0</y>
+                <y>784.0</y>
             </position>
         </funnels>
         <funnels>
@@ -1303,7 +1378,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>4144.447347594447</x>
-                <y>1882.6778777788143</y>
+                <y>2138.677877778814</y>
             </position>
         </funnels>
         <funnels>
@@ -1311,7 +1386,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1824.3035591595783</x>
-                <y>1344.9924256918007</y>
+                <y>1600.9924256918007</y>
             </position>
         </funnels>
         <funnels>
@@ -1319,7 +1394,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1993.7956284194238</x>
-                <y>1924.5839257360976</y>
+                <y>2180.5839257360976</y>
             </position>
         </funnels>
         <inputPorts>
@@ -1327,7 +1402,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>736.0</x>
-                <y>1224.0</y>
+                <y>1480.0</y>
             </position>
             <comments></comments>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
@@ -1340,7 +1415,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>192.0</x>
-                <y>360.0</y>
+                <y>616.0</y>
             </position>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>EmailTemplateTriggerForImport</name>
@@ -1352,7 +1427,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3008.0</x>
-                <y>1032.0</y>
+                <y>1288.0</y>
             </position>
             <height>224.0</height>
             <label>Save the files to an intake folder</label>
@@ -1369,7 +1444,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2320.0</x>
-                <y>120.0</y>
+                <y>376.0</y>
             </position>
             <height>392.0</height>
             <label>If data file is AES encrypted (has a passphrase), decrypt it</label>
@@ -1386,7 +1461,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>4408.0</x>
-                <y>1272.0</y>
+                <y>1528.0</y>
             </position>
             <height>512.0</height>
             <label>When summary reports are approved (by moving them into the approved reports folder), send an email to stakeholders</label>
@@ -1403,7 +1478,7 @@
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>0.0</x>
-                <y>752.0</y>
+                <y>1008.0</y>
             </position>
             <height>456.0</height>
             <label>Remove attributes except DataFileName then delete the contents of the file (to minimize what we send to the yellow zone). 
@@ -1421,7 +1496,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3432.0</x>
-                <y>1120.0</y>
+                <y>1376.0</y>
             </position>
             <height>664.0</height>
             <label>Generate the summary report.  Save a copy in the intake folder and notify stakeholders that report is ready for review.</label>
@@ -1438,7 +1513,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>552.0</x>
-                <y>192.0</y>
+                <y>448.0</y>
             </position>
             <height>392.0</height>
             <label>Decrypt the trigger email and extract out the fields of interest</label>
@@ -1455,7 +1530,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>768.0</x>
-                <y>824.0</y>
+                <y>1080.0</y>
             </position>
             <height>168.0</height>
             <label>Save the trigger email fields so that when the data files arrive in the secure area the fields can be added as attributes</label>
@@ -1472,7 +1547,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2096.0</x>
-                <y>976.0</y>
+                <y>1232.0</y>
             </position>
             <height>640.0</height>
             <label>If the data file is GPG encrypted, decrypt it</label>
@@ -1489,7 +1564,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1184.0</x>
-                <y>1016.0</y>
+                <y>1272.0</y>
             </position>
             <height>184.0</height>
             <label>When the data files arrive, we need to add the information (e.g., pass phrase) from the trigger email to them as attributes.  The Notify processor does this.</label>
@@ -1506,7 +1581,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>200.0</x>
-                <y>1320.0</y>
+                <y>1576.0</y>
             </position>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>TriggerDataImport</name>
@@ -1517,12 +1592,12 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <id>bf26db1f-a861-33a9-0000-000000000000</id>
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
-                <x>1760.0</x>
+                <x>2144.0</x>
                 <y>0.0</y>
             </position>
             <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
             <name>SendEmailVariablesToStaging</name>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <type>OUTPUT_PORT</type>
         </outputPorts>
         <processors>
@@ -1530,7 +1605,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3952.0</x>
-                <y>1624.0</y>
+                <y>1880.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -1637,11 +1712,73 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
         <processors>
+            <id>24c1b8c8-3e23-32fa-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1632.0</x>
+                <y>240.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>
+                            <name>Routing Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>IsReport</key>
+                        <value>
+                            <name>IsReport</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Routing Strategy</key>
+                        <value>Route to Property name</value>
+                    </entry>
+                    <entry>
+                        <key>IsReport</key>
+                        <value>${anyMatchingAttribute('IsDraftReport|IsApprovedReport'):equals('true')}</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>IsReportRouteOnAttribute</name>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>IsReport</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>unmatched</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
+        </processors>
+        <processors>
             <id>3bf7252b-d744-3f8f-0000-000000000000</id>
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>4584.0</x>
-                <y>1560.0</y>
+                <y>1816.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -1752,7 +1889,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3024.0</x>
-                <y>1328.0</y>
+                <y>1584.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -1937,7 +2074,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>912.0</x>
-                <y>848.0</y>
+                <y>1104.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2040,7 +2177,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2928.0</x>
-                <y>328.0</y>
+                <y>584.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2152,7 +2289,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>784.0</x>
-                <y>624.0</y>
+                <y>880.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2214,7 +2351,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>144.0</x>
-                <y>1064.0</y>
+                <y>1320.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2326,7 +2463,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2192.0</x>
-                <y>792.0</y>
+                <y>1048.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -2472,7 +2609,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>4584.0</x>
-                <y>1328.0</y>
+                <y>1584.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2627,7 +2764,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3552.0</x>
-                <y>352.0</y>
+                <y>608.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -2752,7 +2889,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>152.0</x>
-                <y>840.0</y>
+                <y>1096.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -2829,7 +2966,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>792.0</x>
-                <y>432.0</y>
+                <y>688.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3071,7 +3208,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3544.0</x>
-                <y>144.0</y>
+                <y>400.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -3177,7 +3314,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2160.0</x>
-                <y>1256.0</y>
+                <y>1512.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3320,11 +3457,123 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <type>org.apache.nifi.processors.standard.EncryptContent</type>
         </processors>
         <processors>
+            <id>86af8e08-c246-33fb-0000-000000000000</id>
+            <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+            <position>
+                <x>1504.0</x>
+                <y>8.0</y>
+            </position>
+            <bundle>
+                <artifact>nifi-standard-nar</artifact>
+                <group>org.apache.nifi</group>
+                <version>1.10.0</version>
+            </bundle>
+            <config>
+                <bulletinLevel>WARN</bulletinLevel>
+                <comments></comments>
+                <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                <descriptors>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value>
+                            <name>Regular Expression</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value>
+                            <name>Replacement Value</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>
+                            <name>Character Set</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>
+                            <name>Maximum Buffer Size</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>
+                            <name>Replacement Strategy</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>
+                            <name>Evaluation Mode</name>
+                        </value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>
+                            <name>Line-by-Line Evaluation Mode</name>
+                        </value>
+                    </entry>
+                </descriptors>
+                <executionNode>ALL</executionNode>
+                <lossTolerant>false</lossTolerant>
+                <penaltyDuration>30 sec</penaltyDuration>
+                <properties>
+                    <entry>
+                        <key>Regular Expression</key>
+                        <value></value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Value</key>
+                        <value> </value>
+                    </entry>
+                    <entry>
+                        <key>Character Set</key>
+                        <value>UTF-8</value>
+                    </entry>
+                    <entry>
+                        <key>Maximum Buffer Size</key>
+                        <value>1 MB</value>
+                    </entry>
+                    <entry>
+                        <key>Replacement Strategy</key>
+                        <value>Always Replace</value>
+                    </entry>
+                    <entry>
+                        <key>Evaluation Mode</key>
+                        <value>Entire text</value>
+                    </entry>
+                    <entry>
+                        <key>Line-by-Line Evaluation Mode</key>
+                        <value>All</value>
+                    </entry>
+                </properties>
+                <runDurationMillis>0</runDurationMillis>
+                <schedulingPeriod>0 sec</schedulingPeriod>
+                <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                <yieldDuration>1 sec</yieldDuration>
+            </config>
+            <executionNodeRestricted>false</executionNodeRestricted>
+            <name>ReplaceText</name>
+            <relationships>
+                <autoTerminate>true</autoTerminate>
+                <name>failure</name>
+            </relationships>
+            <relationships>
+                <autoTerminate>false</autoTerminate>
+                <name>success</name>
+            </relationships>
+            <state>STOPPED</state>
+            <style/>
+            <type>org.apache.nifi.processors.standard.ReplaceText</type>
+        </processors>
+        <processors>
             <id>871e8a98-bf5a-3a2b-0000-000000000000</id>
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3456.0</x>
-                <y>1600.0</y>
+                <y>1856.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3441,7 +3690,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1488.0</x>
-                <y>688.0</y>
+                <y>944.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -3552,7 +3801,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2192.0</x>
-                <y>1000.0</y>
+                <y>1256.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3614,7 +3863,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2376.0</x>
-                <y>336.0</y>
+                <y>592.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3715,7 +3964,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3960.0</x>
-                <y>1192.0</y>
+                <y>1448.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3827,7 +4076,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3048.0</x>
-                <y>664.0</y>
+                <y>920.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -3903,7 +4152,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>792.0</x>
-                <y>232.0</y>
+                <y>488.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -4050,7 +4299,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3952.0</x>
-                <y>1408.0</y>
+                <y>1664.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -4162,7 +4411,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2096.0</x>
-                <y>1464.0</y>
+                <y>1720.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -4273,7 +4522,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3448.0</x>
-                <y>1168.0</y>
+                <y>1424.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -4398,7 +4647,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3032.0</x>
-                <y>1080.0</y>
+                <y>1336.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -4515,7 +4764,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1328.0</x>
-                <y>1048.0</y>
+                <y>1304.0</y>
             </position>
             <bundle>
                 <artifact>nifi-standard-nar</artifact>
@@ -4664,7 +4913,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1168.0</x>
-                <y>1304.0</y>
+                <y>1560.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -4775,7 +5024,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1856.0</x>
-                <y>192.0</y>
+                <y>448.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -4818,7 +5067,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
                 <properties>
                     <entry>
                         <key>Delete Attributes Expression</key>
-                        <value>^(?!(EmailTo|EmailSubject|EmailMessage|DataFileName)$).*$</value>
+                        <value>^(?!(EmailTo|EmailSubject|EmailMessage|DataFileName|IsDraftReport|IsApprovedReport)$).*$</value>
                     </entry>
                     <entry>
                         <key>Store State</key>
@@ -4843,7 +5092,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
                 <autoTerminate>false</autoTerminate>
                 <name>success</name>
             </relationships>
-            <state>RUNNING</state>
+            <state>STOPPED</state>
             <style/>
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
@@ -4852,7 +5101,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3016.0</x>
-                <y>1536.0</y>
+                <y>1792.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -4963,7 +5212,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>3456.0</x>
-                <y>1408.0</y>
+                <y>1664.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -5049,7 +5298,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1488.0</x>
-                <y>536.0</y>
+                <y>792.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -5170,7 +5419,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>2584.0</x>
-                <y>1480.0</y>
+                <y>1736.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -5276,7 +5525,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
             <position>
                 <x>1480.0</x>
-                <y>384.0</y>
+                <y>640.0</y>
             </position>
             <bundle>
                 <artifact>nifi-update-attribute-nar</artifact>
@@ -5383,5 +5632,5 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
         </processors>
     </snippet>
-    <timestamp>02/13/2020 13:17:27 UTC</timestamp>
+    <timestamp>02/13/2020 13:46:31 UTC</timestamp>
 </template>

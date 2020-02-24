@@ -5,9 +5,12 @@ total=0
 input="listofnames.txt"
 while IFS= read -r line; do
 	nameCt=$(grep -i "$line" $freqFile | cut -d" " -f2)
-	if [ $nameCt > 0 ]
-	then
-		total=$(($total+$nameCt))
-	fi
+	for found in $nameCt
+	do
+		if [ $found > 0 ]
+		then
+			total=$((total+found))
+		fi
+	done
 done < "$input"
 echo $total

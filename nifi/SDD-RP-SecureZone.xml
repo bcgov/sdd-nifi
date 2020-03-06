@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>add datapackage schema created upon approved report</description>
+    <description>add hyphen as an allowable filename character; better handling of windows carriage returns</description>
     <groupId>cf2424c8-016f-1000-caed-5a0c9c0ac6d2</groupId>
-    <name>SDD-RP-SecureZone-v2.4</name>
+    <name>SDD-RP-SecureZone-v2.5</name>
     <snippet>
         <controllerServices>
             <id>9548cefd-be72-3842-0000-000000000000</id>
@@ -877,6 +877,31 @@
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
+                    <id>7a1e73fd-4e49-34ea-0000-000000000000</id>
+                    <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                        <id>9486d51b-0028-3de3-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>failure</selectedRelationships>
+                    <source>
+                        <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                        <id>b0df5331-77a9-316e-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
                     <id>8a64bd8b-4a2d-3e7d-0000-000000000000</id>
                     <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
                     <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
@@ -1445,6 +1470,35 @@
                     <source>
                         <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
                         <id>b9986daf-1164-3069-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>fdf88be6-fcd7-3978-0000-000000000000</id>
+                    <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <bends>
+                        <x>264.0</x>
+                        <y>-400.0</y>
+                    </bends>
+                    <destination>
+                        <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                        <id>b0df5331-77a9-316e-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>a6406bbb-6e70-3fce-0000-000000000000</groupId>
+                        <id>9486d51b-0028-3de3-0000-000000000000</id>
                         <type>PROCESSOR</type>
                     </source>
                     <zIndex>0</zIndex>
@@ -3415,7 +3469,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
                             </entry>
                             <entry>
 <key>DataFileName</key>
-<value>Filename: ([a-zA-Z0-9\._]+)</value>
+<value>Filename: ([a-zA-Z0-9\._-]+)</value>
                             </entry>
                             <entry>
 <key>EncryptionKey</key>
@@ -4047,6 +4101,118 @@ This flow will go to the staging area and trigger the flow of data files to the 
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                 </processors>
                 <processors>
+                    <id>9486d51b-0028-3de3-0000-000000000000</id>
+                    <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>-96.0</x>
+                        <y>-608.0</y>
+                    </position>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.10.0</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Regular Expression</key>
+<value>
+    <name>Regular Expression</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Replacement Value</key>
+<value>
+    <name>Replacement Value</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Character Set</key>
+<value>
+    <name>Character Set</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Maximum Buffer Size</key>
+<value>
+    <name>Maximum Buffer Size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Replacement Strategy</key>
+<value>
+    <name>Replacement Strategy</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Evaluation Mode</key>
+<value>
+    <name>Evaluation Mode</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Line-by-Line Evaluation Mode</key>
+<value>
+    <name>Line-by-Line Evaluation Mode</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Regular Expression</key>
+<value>(?s).*(-----BEGIN PGP MESSAGE-----.*-----END PGP MESSAGE-----).*</value>
+                            </entry>
+                            <entry>
+<key>Replacement Value</key>
+<value>$1</value>
+                            </entry>
+                            <entry>
+<key>Character Set</key>
+<value>UTF-8</value>
+                            </entry>
+                            <entry>
+<key>Maximum Buffer Size</key>
+<value>1 MB</value>
+                            </entry>
+                            <entry>
+<key>Replacement Strategy</key>
+<value>Regex Replace</value>
+                            </entry>
+                            <entry>
+<key>Evaluation Mode</key>
+<value>Entire text</value>
+                            </entry>
+                            <entry>
+<key>Line-by-Line Evaluation Mode</key>
+<value>All</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>RemoveNonGPGTextReplaceText</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.ReplaceText</type>
+                </processors>
+                <processors>
                     <id>a4a25987-6f9b-3238-0000-000000000000</id>
                     <parentGroupId>a6406bbb-6e70-3fce-0000-000000000000</parentGroupId>
                     <position>
@@ -4610,7 +4776,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
                         <properties>
                             <entry>
 <key>Regular Expression</key>
-<value>^\*remove.*\n</value>
+<value>^\*remove.*\r?\n</value>
                             </entry>
                             <entry>
 <key>Replacement Value</key>
@@ -5997,5 +6163,5 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>02/27/2020 16:59:52 UTC</timestamp>
+    <timestamp>02/29/2020 15:16:21 UTC</timestamp>
 </template>

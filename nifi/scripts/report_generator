@@ -48,7 +48,7 @@ while IFS= read -r -d '' file; do
 	fi
 	phnlines=$(./phn_finder $file | wc -l)    
 	phonelines=$(./phone_finder $file | wc -l)
-	./chkfreq $file >  "${file}.tab"
+	./chkfreq $file >  "$path/${file}.tab"
 	freqnm="${file}.tab"
 	namecnt=$(./scan_names.sh $freqnm)
 	md5sum=$(md5sum $file) 

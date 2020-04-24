@@ -30,7 +30,11 @@ class DIPSeparator:
         for keyed_row in table.iter(keyed=True, cast=False):
             idLine = contentLine = str(uuid.uuid1()) + ","
             for key, value in keyed_row.items():
-                fieldName = table.schema.get_field(key).name
+                try:
+                    fieldName = table.schema.get_field(key).name
+                except AttributeError:
+                    print("Attribute:" + key + " not found.  The schema does not match the data.")
+                    raise
                 isDatetime = False
                 try:
                     index = indirectFields.index(fieldName)
@@ -73,8 +77,8 @@ class DIPSeparator:
             contentFile.write(contentLine)
 
 
-    def separate(self, table, filename):
-        directory = "."+os.sep+"output"
+    def separate(self, table, filename, outputFolder = 'output'):
+        directory = "."+os.sep+outputFolder
         identifiersFilename = filename + "-identifiers.csv"
         contentFilename = filename + "-contentFile.csv"
 

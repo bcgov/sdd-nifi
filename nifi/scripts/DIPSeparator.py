@@ -29,12 +29,9 @@ class DIPSeparator:
     def __writeFileContents(self, table, idFile, contentFile, idFields, contentFields, indirectFields):
         for keyed_row in table.iter(keyed=True, cast=False):
             idLine = contentLine = str(uuid.uuid1()) + ","
-            for key, value in keyed_row.items():
-                try:
-                    fieldName = table.schema.get_field(key).name
-                except AttributeError:
-                    print("Attribute:" + key + " not found.  The schema does not match the data.")
-                    raise
+            for field in table.schema.fields:
+                fieldName = field.name
+                value = keyed_row[fieldName]
                 isDatetime = False
                 try:
                     index = indirectFields.index(fieldName)

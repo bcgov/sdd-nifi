@@ -1,4 +1,4 @@
-FROM apache/nifi:1.10.0
+FROM apache/nifi:1.11.2
 
 USER root
 
@@ -8,7 +8,7 @@ RUN pip3 install tableschema requests numpy pandas messytables datapackage
 
 RUN npm install semantic_infer
 
-ADD ./logback.xml /opt/nifi/nifi-1.10.0/conf
+ADD ./logback.xml /opt/nifi/nifi-1.11.2/conf
 
 USER nifi
 

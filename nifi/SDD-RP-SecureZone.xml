@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>Add / revise labels to improve documentation</description>
+    <description>handle double encryption case</description>
     <groupId>cf2424c8-016f-1000-caed-5a0c9c0ac6d2</groupId>
-    <name>SDD-RP-SecureZone-v3.1</name>
+    <name>SDD-RP-SecureZone-v3.2</name>
     <snippet>
         <controllerServices>
             <id>9548cefd-be72-3842-0000-000000000000</id>
@@ -2481,7 +2481,7 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                             <entry>
 <key>attribute-cache-regex</key>
-<value>EncryptionKey|SendingUser|DataDateStamp|OriginalFileName|Notes</value>
+<value>EncryptionType|EncryptionKey|SendingUser|DataDateStamp|OriginalFileName|Notes</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -2543,7 +2543,7 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                             <entry>
 <key>IsCorrectlyFormatted</key>
-<value>${allMatchingAttributes("DataDateStamp|DataFileName|SendingUser|EncryptionKey"):notNull()}</value>
+<value>${allMatchingAttributes("DataDateStamp|DataFileName|SendingUser|EncryptionKey|EncryptionType"):notNull()}</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -2882,6 +2882,12 @@ Save metadata to "metadata" folder.</label>
     <name>command.argument.4</name>
 </value>
                             </entry>
+                            <entry>
+<key>command.argument.5</key>
+<value>
+    <name>command.argument.5</name>
+</value>
+                            </entry>
                         </descriptors>
                         <executionNode>ALL</executionNode>
                         <lossTolerant>false</lossTolerant>
@@ -2923,7 +2929,7 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                             <entry>
 <key>command.argument.2</key>
-<value>${EncryptionKey}</value>
+<value>${EncryptionType}</value>
                             </entry>
                             <entry>
 <key>command.argument.3</key>
@@ -2932,6 +2938,10 @@ Save metadata to "metadata" folder.</label>
                             <entry>
 <key>command.argument.4</key>
 <value>#{GPG Private Keyring File}</value>
+                            </entry>
+                            <entry>
+<key>command.argument.5</key>
+<value>${EncryptionKey}</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -3154,6 +3164,12 @@ Save metadata to "metadata" folder.</label>
 </value>
                             </entry>
                             <entry>
+<key>EncryptionType</key>
+<value>
+    <name>EncryptionType</name>
+</value>
+                            </entry>
+                            <entry>
 <key>Notes</key>
 <value>
     <name>Notes</name>
@@ -3243,6 +3259,10 @@ Save metadata to "metadata" folder.</label>
                             <entry>
 <key>EncryptionKey</key>
 <value>Encryption Key: ([^\r\n]+)</value>
+                            </entry>
+                            <entry>
+<key>EncryptionType</key>
+<value>Encryption Type: ([^\r\n]+)</value>
                             </entry>
                             <entry>
 <key>Notes</key>
@@ -4640,7 +4660,7 @@ Save metadata to "metadata" folder.</label>
                         <autoTerminate>false</autoTerminate>
                         <name>output stream</name>
                     </relationships>
-                    <state>RUNNING</state>
+                    <state>STOPPED</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.ExecuteStreamCommand</type>
                 </processors>
@@ -5758,5 +5778,5 @@ Save metadata to "metadata" folder.</label>
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>06/01/2020 15:45:36 UTC</timestamp>
+    <timestamp>06/05/2020 23:57:45 UTC</timestamp>
 </template>

@@ -1,11 +1,12 @@
 #!/bin/bash
 fileName=$1
-encyptionKey=$2
+encryptionType=$2
 GPGPassPhraseFile=$3
 GPGPrivateKeyLocation=$4
+encryptionKey=$5
 GPG_TTY=$(tty)
 export GPG_TTY
-case $encyptionKey in
+case $encryptionType in
 	"None")
 		7z x $fileName -odata
 		#unzip $fileName -d data
@@ -25,6 +26,11 @@ case $encyptionKey in
 			# loop through files and decrypt
 			gpg --decrypt --pinentry-mode loopback  --passphrase-file $GPGPassPhraseFile -o $decryptedFileName --secret-keyring $GPGPrivateKeyLocation $f
 			mv $decryptedFileName $f
+			if [ $encryptionKey != 'None' ]
+			then
+				7z x $f -p$encryptionKey -aoa -odata || { echo 'error occurred during AES decryption attempt' ; exit 1; }
+				mv $f $(basename $f) 
+			fi
 		done
 		;;
 	*)

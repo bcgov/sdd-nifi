@@ -6,11 +6,15 @@ RUN apt-get update && apt-get install -y python3 python3-pip p7zip-full nodejs n
 
 RUN pip3 install tableschema requests numpy pandas messytables datapackage
 
-RUN npm install semantic_infer
-
 ADD ./logback.xml /opt/nifi/nifi-1.11.2/conf
 
-USER nifi
+RUN npm install --prefix /scripts semantic_infer
+
 
 COPY scripts /scripts
 
+RUN chown -R nifi /scripts
+
+RUN chmod -R o-rx,g-rx /scripts/*.sh
+
+USER nifi

@@ -1,9 +1,7 @@
 #!/bin/bash
 fileName=$1
 encryptionType=$2
-GPGPassPhraseFile=$3
-GPGPrivateKeyLocation=$4
-encryptionKey=$5
+encryptionKey=$3
 GPG_TTY=$(tty)
 export GPG_TTY
 case $encryptionType in
@@ -12,19 +10,18 @@ case $encryptionType in
 		#unzip $fileName -d data
 	;;
 	"GPG")
-		#gpg --import < $GPGPrivateKeyLocation
 		decryptedFileName="${fileName}_de.zip" 
-		gpg --decrypt --pinentry-mode loopback  --passphrase-file $GPGPassPhraseFile -o $decryptedFileName --secret-keyring $GPGPrivateKeyLocation $fileName
+		gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $fileName || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
 		7z x $decryptedFileName -odata
 	;;
 	"GPG-MC")
-		7z x $fileName -odata
+		7z x $fileName -odata || { echo 'error occurred during unzipping attempt' ; exit 1; }
 		FILES=./data/*
 		for f in $FILES
 		do
 			decryptedFileName="${f}_de" 
 			# loop through files and decrypt
-			gpg --decrypt --pinentry-mode loopback  --passphrase-file $GPGPassPhraseFile -o $decryptedFileName --secret-keyring $GPGPrivateKeyLocation $f
+			gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $f  || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
 			mv $decryptedFileName $f
 			if [ $encryptionKey != 'None' ]
 			then
@@ -33,6 +30,11 @@ case $encryptionType in
 			fi
 		done
 		;;
+	"AES")
+		7z x $fileName -p$encryptionKey -aoa -odata || { echo 'error occurred during AES decryption attempt' ; exit 1; }
+		;;
 	*)
-		7z x $fileName -p$encyptionKey -aoa -odata;;
+		echo 'no valid encryption type specified.  Expecting EncryptionType is one of: None, GPG, GPG-MC, AES' 
+		exit 1
+		;;
 esac

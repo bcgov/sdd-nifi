@@ -15,6 +15,6 @@ COPY scripts /scripts
 
 RUN chown -R nifi /scripts
 
-RUN chmod -R o-rx,g-rx /scripts/*.sh
+RUN chmod -R 750 /scripts/*
 
 USER nifi

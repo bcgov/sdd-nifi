@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>localized distributed cache server</description>
+    <description>rename metadata json variable</description>
     <groupId>00fcdf3d-016f-1000-2798-b15f3b9c74b6</groupId>
-    <name>SDD-RP-StagingZone-v3.1</name>
+    <name>SDD-RP-StagingZone-v3.2</name>
     <snippet>
         <processGroups>
             <id>ac3a2777-f8f0-3f44-0000-000000000000</id>
@@ -707,12 +707,14 @@
                         </entry>
                         <entry>
                             <key>Server Port</key>
+                            <value>4557</value>
                         </entry>
                         <entry>
                             <key>SSL Context Service</key>
                         </entry>
                         <entry>
                             <key>Communications Timeout</key>
+                            <value>30 secs</value>
                         </entry>
                     </properties>
                     <state>ENABLED</state>
@@ -1955,9 +1957,9 @@
 </value>
                             </entry>
                             <entry>
-<key>asdf</key>
+<key>MetadataJson</key>
 <value>
-    <name>asdf</name>
+    <name>MetadataJson</name>
 </value>
                             </entry>
                         </descriptors>
@@ -1982,7 +1984,7 @@
 <value>empty string</value>
                             </entry>
                             <entry>
-<key>asdf</key>
+<key>MetadataJson</key>
 <value>$</value>
                             </entry>
                         </properties>
@@ -2299,7 +2301,7 @@
                         <autoTerminate>true</autoTerminate>
                         <name>unmatched</name>
                     </relationships>
-                    <state>STOPPED</state>
+                    <state>RUNNING</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.RouteOnAttribute</type>
                 </processors>
@@ -4316,5 +4318,5 @@
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>06/11/2020 17:19:32 UTC</timestamp>
+    <timestamp>06/15/2020 19:34:30 UTC</timestamp>
 </template>

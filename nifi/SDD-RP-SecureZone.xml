@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>switched to GPG env var for passphrase</description>
+    <description>Change approved report behaviour and prepend folder name to metadata file</description>
     <groupId>00fc7948-016f-1000-6b22-cd70e424544b</groupId>
-    <name>SDD-RP-SecureZone-v3.5</name>
+    <name>SDD-RP-SecureZone-v3.6</name>
     <snippet>
         <processGroups>
             <id>3aaed821-2ff9-3cc3-0000-000000000000</id>
@@ -4357,7 +4357,7 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                             <entry>
 <key>filename</key>
-<value>datapackage.json</value>
+<value>${DataFileWorkingDirectoryBaseName}_datapackage.json</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -5418,7 +5418,7 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                             <entry>
 <key>Recurse Subdirectories</key>
-<value>true</value>
+<value>false</value>
                             </entry>
                             <entry>
 <key>Input Directory Location</key>
@@ -5490,7 +5490,7 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
-                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingPeriod>1 sec</schedulingPeriod>
                         <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
                         <yieldDuration>1 sec</yieldDuration>
                     </config>
@@ -6015,10 +6015,11 @@ Save metadata to "metadata" folder.</label>
                             </entry>
                             <entry>
 <key>Completion Strategy</key>
-<value>None</value>
+<value>Move File</value>
                             </entry>
                             <entry>
 <key>Move Destination Directory</key>
+<value>#{Approved Report Move Destination Directory}</value>
                             </entry>
                             <entry>
 <key>Move Conflict Strategy</key>
@@ -6065,5 +6066,5 @@ Save metadata to "metadata" folder.</label>
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>06/12/2020 22:15:03 UTC</timestamp>
+    <timestamp>06/15/2020 19:32:08 UTC</timestamp>
 </template>

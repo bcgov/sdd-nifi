@@ -10,13 +10,15 @@ case $encryptionType in
 		#unzip $fileName -d data
 	;;
 	"GPG")
-		decryptedFileName="${fileName}_de.zip" 
+		decryptedFileName="${fileName}_de.zip"
+		[ -z "$GPG_PASS_PHRASE" ] && echo "GPG passphrase environment variable not set." && exit 1
 		gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $fileName || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
 		7z x $decryptedFileName -odata
 	;;
 	"GPG-MC")
 		7z x $fileName -odata || { echo 'error occurred during unzipping attempt' ; exit 1; }
 		FILES=./data/*
+		[ -z "$GPG_PASS_PHRASE" ] && echo "GPG passphrase environment variable not set." && exit 1
 		for f in $FILES
 		do
 			decryptedFileName="${f}_de" 

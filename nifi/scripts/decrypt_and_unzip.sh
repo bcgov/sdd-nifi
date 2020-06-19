@@ -2,8 +2,6 @@
 fileName=$1
 encryptionType=$2
 encryptionKey=$3
-GPG_TTY=$(tty)
-export GPG_TTY
 case $encryptionType in
 	"None")
 		7z x $fileName -odata

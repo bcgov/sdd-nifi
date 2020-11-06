@@ -35,14 +35,14 @@ case $encryptionType in
 				mv $f $(basename $f) 
 			fi
 			echo 'Starting anti-virus scan on data folder...'
-			clamscan data || { echo 'Data folder file(s) is infected. Exiting.' ; exit 1; }
+			clamscan -r data || { echo 'Data folder file(s) is infected. Exiting.' ; exit 1; }
 			echo 'Virus scan complete.'
 		done
 		;;
 	"AES")
 		7z x $fileName -p$encryptionKey -aoa -odata || { echo 'error occurred during AES decryption attempt' ; exit 1; }
 		echo 'Starting anti-virus scan on data folder...'
-		clamscan data || { echo 'Data folder file(s) is infected. Exiting.' ; exit 1; }
+		clamscan -r data || { echo 'Data folder file(s) is infected. Exiting.' ; exit 1; }
 		echo 'Virus scan complete.'
 		;;
 	*)

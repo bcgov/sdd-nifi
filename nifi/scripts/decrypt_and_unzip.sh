@@ -15,7 +15,7 @@ case $encryptionType in
 		[ -z "$GPG_PASS_PHRASE" ] && echo "GPG passphrase environment variable not set." && exit 1
 		gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $fileName || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
 		echo 'Starting anti-virus scan...'
-		clamscan $fileName || { echo 'File is infected. Exiting.' ; exit 1; }
+		clamscan $decryptedFileName || { echo 'File is infected. Exiting.' ; exit 1; }
 		echo 'Virus scan complete.  Unzipping...'
 		7z x $decryptedFileName -odata
 	;;

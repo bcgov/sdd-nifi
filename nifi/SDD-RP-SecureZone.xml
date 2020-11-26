@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>added approver name capture to on ramp for data already in the secure zone</description>
+    <description>add flag for onramp for whether virus scan should be done</description>
     <groupId>00fc7948-016f-1000-6b22-cd70e424544b</groupId>
-    <name>SDD-RP-SecureZone-v4.5</name>
+    <name>SDD-RP-SecureZone-v4.6</name>
     <snippet>
         <processGroups>
             <id>fbcc9075-0826-3f33-0000-000000000000</id>
@@ -2756,8 +2756,11 @@ A command line approval script (/scripts/approve_import.sh &lt;filename&gt;)will
                             <height>304.0</height>
                             <label>Monitor a folder in the secure zone for manual approvals for processing data files that are already in the secure zone
 Assumption is that datafile is a zip file that is either unencrypted (default) or gpg encrypted.
-e.g., in the monitored folder, run &lt;scripts folder&gt;/approve_import_rz_onramp.sh &lt;filename&gt;
-You can specify GPG decryption when approving the file by adding 'GPG' as a 2nd parameter. </label>
+To approve a file, in the monitored folder, run &lt;scripts folder&gt;/approve_import_rz_onramp.sh &lt;filename&gt;
+You may want to create a local bash file with the above command
+e.g., /scripts/approve_import_onramp_rz.sh "$@"
+You can specify GPG decryption when approving the file via the -d flag
+You can enable virus scanning via the -v flag</label>
                             <style>
 <entry>
     <key>font-size</key>
@@ -2878,8 +2881,8 @@ Approved metadata is sent to the staging zone for storage.</label>
                             <id>c17ea787-ce72-34b8-0000-000000000000</id>
                             <parentGroupId>e3e07a67-06d3-360a-0000-000000000000</parentGroupId>
                             <position>
-<x>1928.0</x>
-<y>464.0</y>
+<x>1936.0</x>
+<y>480.0</y>
                             </position>
                             <height>224.0</height>
                             <label>Save the files to an intake folder</label>
@@ -3338,6 +3341,23 @@ This flow will go to the staging area and trigger the flow of data files to the 
     </source>
     <zIndex>0</zIndex>
 </connections>
+<labels>
+    <id>544edc64-0a96-3b47-0000-000000000000</id>
+    <parentGroupId>5217e5f9-4062-35ec-0000-000000000000</parentGroupId>
+    <position>
+        <x>1056.0</x>
+        <y>48.0</y>
+    </position>
+    <height>456.0</height>
+    <label>Process approval info json file which was automatically created by bash script</label>
+    <style>
+        <entry>
+            <key>font-size</key>
+            <value>12px</value>
+        </entry>
+    </style>
+    <width>1296.0</width>
+</labels>
 <outputPorts>
     <id>0fb41321-058c-37e0-0000-000000000000</id>
     <parentGroupId>5217e5f9-4062-35ec-0000-000000000000</parentGroupId>
@@ -3577,7 +3597,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             </entry>
             <entry>
                 <key>HasValidApproverAndDate</key>
-                <value>${anyAttribute("DataFileName", "Approver", "ApprovalTime"):isEmpty():not()}</value>
+                <value>${anyAttribute("DataFileName", "Approver", "ApprovalTime", "EncryptionType", "RunVirusScan"):isEmpty():not()}</value>
             </entry>
         </properties>
         <runDurationMillis>0</runDurationMillis>
@@ -3680,7 +3700,7 @@ This flow will go to the staging area and trigger the flow of data files to the 
             </entry>
             <entry>
                 <key>attribute-cache-regex</key>
-                <value>ApprovalTime|Approver|DataFileName|EncryptionType</value>
+                <value>ApprovalTime|Approver|DataFileName|EncryptionType|RunVirusScan</value>
             </entry>
         </properties>
         <runDurationMillis>0</runDurationMillis>
@@ -3916,6 +3936,12 @@ This flow will go to the staging area and trigger the flow of data files to the 
                     <name>EncryptionType</name>
                 </value>
             </entry>
+            <entry>
+                <key>RunVirusScan</key>
+                <value>
+                    <name>RunVirusScan</name>
+                </value>
+            </entry>
         </descriptors>
         <executionNode>ALL</executionNode>
         <lossTolerant>false</lossTolerant>
@@ -3952,6 +3978,10 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <entry>
                 <key>EncryptionType</key>
                 <value>$.encryption_type</value>
+            </entry>
+            <entry>
+                <key>RunVirusScan</key>
+                <value>$.run_virus_scan</value>
             </entry>
         </properties>
         <runDurationMillis>0</runDurationMillis>
@@ -6304,6 +6334,12 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <name>command.argument.3</name>
         </value>
     </entry>
+    <entry>
+        <key>command.argument.4</key>
+        <value>
+            <name>command.argument.4</name>
+        </value>
+    </entry>
 </descriptors>
 <executionNode>ALL</executionNode>
 <lossTolerant>false</lossTolerant>
@@ -6350,6 +6386,10 @@ This flow will go to the staging area and trigger the flow of data files to the 
     <entry>
         <key>command.argument.3</key>
         <value>${EncryptionKey}</value>
+    </entry>
+    <entry>
+        <key>command.argument.4</key>
+        <value>${RunVirusScan}</value>
     </entry>
 </properties>
 <runDurationMillis>0</runDurationMillis>
@@ -10282,6 +10322,12 @@ This flow will go to the staging area and trigger the flow of data files to the 
         </value>
     </entry>
     <entry>
+        <key>RunVirusScan</key>
+        <value>
+            <name>RunVirusScan</name>
+        </value>
+    </entry>
+    <entry>
         <key>SummaryReportName</key>
         <value>
             <name>SummaryReportName</name>
@@ -10321,6 +10367,10 @@ This flow will go to the staging area and trigger the flow of data files to the 
     <entry>
         <key>IsDataFile</key>
         <value>${filename:equals('${DataFileName}')}</value>
+    </entry>
+    <entry>
+        <key>RunVirusScan</key>
+        <value>${RunVirusScan:isEmpty():ifElse('true',${RunVirusScan})}</value>
     </entry>
     <entry>
         <key>SummaryReportName</key>
@@ -12135,5 +12185,5 @@ This flow will go to the staging area and trigger the flow of data files to the 
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>11/24/2020 21:47:46 UTC</timestamp>
+    <timestamp>11/26/2020 00:20:26 UTC</timestamp>
 </template>

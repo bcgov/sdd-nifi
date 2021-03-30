@@ -3,10 +3,12 @@ var fs = require('fs');
 var dp_json_str = fs.readFileSync(process.stdin.fd, 'utf-8');
 const DEFAULT_MAX_FIELD_LENGTH = 32
 var max_field_length = args[0] > 0 ? args[0]: DEFAULT_MAX_FIELD_LENGTH;
-
 //check uniqueness of purposed shortened field name; want to avoid conflicts with other field's names and shortnames
-function check_field_name_uniqueness(resource_fields, purposed_name){
+function check_field_name_uniqueness(resource_fields, purposed_name, field_name){
 	for (var k=0; k < resource_fields.length; k++) {
+		if (resource_fields[k]["name"] == field_name) {
+			continue;
+		}
 		if (resource_fields[k]["name"] == purposed_name || resource_fields[k]["shortname"] == purposed_name) {
 			return false;
 		}
@@ -15,16 +17,16 @@ function check_field_name_uniqueness(resource_fields, purposed_name){
 }
 
 //tests if a purposed shortened field name is unique and if not tries adding numbers to the name to make it unique
-function generate_unique_field_name(resource_fields, purposed_name) {
-	if (check_field_name_uniqueness(resource_fields, purposed_name)) {
+function generate_unique_field_name(resource_fields, purposed_name, field_name) {
+	purposed_name = purposed_name.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'_');
+	if (check_field_name_uniqueness(resource_fields, purposed_name, field_name)) {
 		return purposed_name;
 	}
 	else {
 		purposed_name = purposed_name.slice(0,purposed_name.length-1);
 		for (var l=0; l < 10; l++) {
-			purposed_name = purposed_name.slice(0,purposed_name.length-1) + l;
-			if (check_field_name_uniqueness(resource_fields, purposed_name)) {
-				return purposed_name;
+			if (check_field_name_uniqueness(resource_fields, purposed_name +l,field_name)) {
+				return purposed_name +l;
 			}
 		}
 		console.log('Cannot shorten fields without creating duplicate names. Field:'+ purposed_name); process.exit(1);
@@ -43,7 +45,7 @@ function datapackage_truncate_fields(dp_json_str, max_field_length) {
 			{
 				field = resource.schema.fields[j];
 				field_short_name = field["name"].slice(0,max_field_length);
-				field["shortname"] = generate_unique_field_name(resource.schema.fields, field_short_name);
+				field["shortname"] = generate_unique_field_name(resource.schema.fields, field_short_name, field["name"]);
 			}
 			
 		}

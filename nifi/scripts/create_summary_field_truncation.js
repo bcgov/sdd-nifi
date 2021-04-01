@@ -1,3 +1,8 @@
+/*
+creates a summary of shortened names i.e., which fields actually got shortened and 
+headers which use the short names
+designed to follow up in a NiFi flow after truncate_dp_fields.js runs
+*/
 const args = process.argv.slice(2)
 var fs = require('fs');
 var dp_json_str = fs.readFileSync(process.stdin.fd, 'utf-8');

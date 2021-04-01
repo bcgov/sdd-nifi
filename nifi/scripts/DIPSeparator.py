@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-
+# separates a data file into an identifiers and research content files based on variable classification
+# specified in a frictionless data package json
+# indirect identifiers are modified: 
+# postal codes --> full value added to identifier content; forward sortation is added to research content
+# life event dates --> full value added to identifier content; only month and year is added to research content
 import os
 import re
 import uuid
@@ -76,6 +80,7 @@ class DIPSeparator:
 
     def separate(self, table, filename, outputFolder = 'output'):
         directory = "."+os.sep+outputFolder
+
         identifiersFilename = filename + "-identifiers.csv"
         contentFilename = filename + "-contentFile.csv"
 

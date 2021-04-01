@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-
+# Separates data fields classified as direct identifiers from research content.  
+# Proof concept for automated severing to be used with NiFi; idea is once a classfication for a data file is created,
+# we can pass that metadata (in the form of a frictionless data package) as stdin to this script
+ 
 import argparse
 import os
 import json
@@ -17,6 +20,7 @@ uploadDir = args.uploadDir
 uploadsDir = args.uploadsDir
 
 resourcesJson = datapackageJson["resources"]
+# loop through the file (resources) in the data package json an separate out the research content from identifiers
 for resourceJson in resourcesJson:
     
     tblSchema = resourceJson.get("schema")

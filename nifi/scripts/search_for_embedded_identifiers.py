@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# Proof of concept script for looking for common names in data.  Not used.
 import re
 import sys
 

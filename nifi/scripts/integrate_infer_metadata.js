@@ -1,3 +1,13 @@
+/*
+Integrates a inferred metadata (frictionless data package json) with another data package json representing
+a previous version of the data.  More specifically, when annual refresh of data is provided, we want
+to be able to apply the previous year's classification to this years. Of course there may be differences
+between this year's and last year's data, but we want to be able to generate a best guess for the classification
+for this year with the understanding that a person would look at and tweak as needed.  
+Inferred data has the benefit of finding fields that weren't present in previous years as well as 
+dropping of fields that were no longer provided.  Combining inferred with the previous year's metadata gives us 
+the best of both worlds
+*/
 const args = process.argv.slice(2)
 var fs = require('fs');
 var inferred_dp_json_str = fs.readFileSync(process.stdin.fd, 'utf-8');

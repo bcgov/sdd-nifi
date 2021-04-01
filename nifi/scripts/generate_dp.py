@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+# generates frictionless data package json from all csv files in the current directory
+# unzips if the filename has a .zip extension
+# designed to be used as part of proof of concept NiFi flow
 import sys
 import os
 from datapackage import Package

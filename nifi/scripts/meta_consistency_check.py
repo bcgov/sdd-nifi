@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+# checks that a data files adheres to given frictionless table schema
+# was used for proof of concept NiFi flow; 
+# no longer used; replaced by datatype_consistency_check.py
 import sys
 import json
 import csv
@@ -17,7 +19,7 @@ def exc_handler(exc, row_number=None, row_data=None, error_data=None):
         errMessage = str(exc)
     err_str = err_str + 'line:' + str((row_number - 1)*fragmentIndex) + ' , error:' + str(errMessage) + '\n' 
 
-# argv[1] is the resource schema 
+# argv[1] is the resource schema; the replace is a bit of a hack due to limitations of NiFi's handling of parameters 
 revised = sys.argv[1].replace('ñÇ','"')
 try:
     resourceSchema=json.loads(revised)

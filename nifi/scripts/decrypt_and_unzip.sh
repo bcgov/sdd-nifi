@@ -1,4 +1,5 @@
 #!/bin/bash
+# Main NiFi flow script for decrypting and unzipping data files
 fileName=$1
 encryptionType=$2
 encryptionKey=$3

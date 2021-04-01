@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+# checks that a data files adheres to given frictionless table schema
+# was used for proof of concept NiFi flow
 import sys
 import argparse
 import json

@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# generates frictionless data package json from all csv files in the current directory
+# designed to be used as part of proof of concept NiFi flow
 import sys
 import json
 from datapackage import Package

@@ -1,3 +1,10 @@
+/*
+Script for shortening field names. Several analytical tools e.g., SAS, Stata have a field character limit
+Designed to be used in SDD NiFi post dataset metadata inference (from that step we get the metadata)
+The idea is to add the shortened name to the metadata as another attribute (shortname).
+Special characters are also filtered out from the shortname.  
+Only operates on the metadata (not the actual data)
+*/
 const args = process.argv.slice(2)
 var fs = require('fs');
 var dp_json_str = fs.readFileSync(process.stdin.fd, 'utf-8');

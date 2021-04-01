@@ -1,4 +1,7 @@
 #!/bin/bash
+# Used as part of NiFi flow to handle requests coming from inside the secure zone being processed
+# Options include whether the file specified is GPG encrypted and whether a virus scan of it is needed
+# Records who and when approvals are made and saves to an approval json file
 if [ $# -eq 0 ]; then
     echo "Please provide a filename of the existing datafile in the redzone as an argument.  You can optionally GPG decrypt by using the -d option.  You can enable virus scanning via the -v option."
     exit 1

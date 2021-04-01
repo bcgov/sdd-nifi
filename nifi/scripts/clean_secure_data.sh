@@ -1,4 +1,5 @@
 #!/bin/bash
+# used for testing to clean out test data
 cd /opt/nifi/data/awaitingapproval/approved/processed || { echo 'Processed approval directory not found. Exiting.' ; exit 1; }
 rm * || { echo 'Nothing to delete in processed approval directory.' ; }
 cd /opt/nifi/data/awaitingapproval || { echo 'Awaiting approval directory not found. Exiting.' ; exit 1; }

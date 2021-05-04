@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-
+# checks that foreign keys specified in frictionless data package are consistent in the dataPackageSchema
+# as an example if the metadata specifies a primary / foreign key relationship, any foreign key in 
+# one file should map to a primary key in another the data file
+# This script supported the NiFi proof of concept flow
 import sys
 import json
 import os

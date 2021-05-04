@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Main validation script that runs on data that newly arrives in the red zone
 if [ $3 ]
 then
 	ext=$3
@@ -9,6 +9,7 @@ fi
 sep=","
 path=$1
 find $path -type f -name "* *" | while read file; do mv "$file" ${file// /_}; done
+# unzip the data file if needed
 if [ $2 == 'false' ]
 then
 	find $path -type f \( -name "*.zip" -or -name "*.ZIP" \) -print0 | sort |
@@ -29,6 +30,7 @@ while IFS= read -r -d '' file; do
 	size=$(du -h $origfile | cut  -f1)B
 	encoding=$(file -b --mime-encoding $file)
 	records=$(wc -l < $file)
+	# detect what separator (e.g., comma, pipe) is used to separate the column in the csv 
 	hcolumnsbycomma=$(head -1 $file | awk -F"," '{print NF}')
 	hcolumnsbypipe=$(head -1 $file | awk -F"|" '{print NF}')
 	hcolumnsbyhat=$(head -1 $file | awk -F"^" '{print NF}')
@@ -46,12 +48,17 @@ while IFS= read -r -d '' file; do
 			sep="^"
 		fi
 	fi
+	# find any numbers that match the pattern for a PHN or phone number
 	phnlines=$(./phn_finder $file | wc -l)    
 	phonelines=$(./phone_finder $file | wc -l)
+	# create a .tab file for each column in the csv.  Tab files have frequency of each value in the column. 
 	./chkfreq $file >  "$path/${file}.tab"
 	freqnm="${file}.tab"
+	# find any strings that could be common names e.g., Fred
 	namecnt=$(./scan_names.sh $freqnm)
+	# determine the md5 hash of the file
 	md5sum=$(md5sum $file) 
+	# print validation report
 	echo "X) $origfile"
 	echo "- size: $size"
 	echo "- encoding: $encoding"

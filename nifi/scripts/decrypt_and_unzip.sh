@@ -1,9 +1,18 @@
 #!/bin/bash
+# Main NiFi flow script for decrypting and unzipping data files
 fileName=$1
 encryptionType=$2
 encryptionKey=$3
+runVirusScan=$4
 case $encryptionType in
 	"None")
+		if [[ $runVirusScan != 'false' ]] 
+		then
+			echo 'Starting anti-virus scan...'
+			clamscan $fileName || { echo 'File is infected. Exiting.' ; exit 1; }
+			echo 'Virus scan complete.'
+		fi
+		echo 'Unzipping file...'
 		7z x $fileName -odata
 		#unzip $fileName -d data
 	;;
@@ -11,6 +20,14 @@ case $encryptionType in
 		decryptedFileName="${fileName}_de.zip"
 		[ -z "$GPG_PASS_PHRASE" ] && echo "GPG passphrase environment variable not set." && exit 1
 		gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $fileName || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
+		echo "Successfully decrypted GPG encrypted file"
+		if [[ $runVirusScan != 'false' ]] 
+		then
+			echo 'Starting anti-virus scan...'
+			clamscan $decryptedFileName || { echo 'File is infected. Exiting.' ; exit 1; }
+			echo 'Virus scan complete.'
+		fi
+		echo 'Unzipping file...'
 		7z x $decryptedFileName -odata
 	;;
 	"GPG-MC")
@@ -22,19 +39,28 @@ case $encryptionType in
 			decryptedFileName="${f}_de" 
 			# loop through files and decrypt
 			gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $f  || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
+			echo "Successfully decrypted GPG encrypted file $f"
 			mv $decryptedFileName $f
-			if [ $encryptionKey != 'None' ]
+			if [[ $encryptionKey != 'None' ]]
 			then
 				7z x $f -p$encryptionKey -aoa -odata || { echo 'error occurred during AES decryption attempt' ; exit 1; }
 				mv $f $(basename $f) 
+				echo "Successfully decrypted and unzipped AES encrypted file"
 			fi
+			echo 'Starting anti-virus scan on data folder...'
+			clamscan -r data || { echo 'Data folder file(s) is infected. Exiting.' ; exit 1; }
+			echo 'Virus scan complete.'
 		done
 		;;
 	"AES")
 		7z x $fileName -p$encryptionKey -aoa -odata || { echo 'error occurred during AES decryption attempt' ; exit 1; }
+		echo "Successfully decrypted and unzipped AES encrypted file"
+		echo 'Starting anti-virus scan on data folder...'
+		clamscan -r data || { echo 'Data folder file(s) is infected. Exiting.' ; exit 1; }
+		echo 'Virus scan complete.'
 		;;
 	*)
-		echo 'no valid encryption type specified.  Expecting EncryptionType is one of: None, GPG, GPG-MC, AES' 
+		echo 'No valid encryption type specified.  Expecting EncryptionType is one of: None, GPG, GPG-MC, AES' 
 		exit 1
 		;;
 esac

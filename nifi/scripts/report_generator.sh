@@ -52,7 +52,7 @@ while IFS= read -r -d '' file; do
 	phnlines=$(./phn_finder.sh $file | wc -l)    
 	phonelines=$(./phone_finder.sh $file | wc -l)
 	# create a .tab file for each column in the csv.  Tab files have frequency of each value in the column. 
-	./chkfreq $file >  "$path/${file}.tab"
+	./chkfreq.sh $file >  "${file}.tab"
 	freqnm="${file}.tab"
 	# find any strings that could be common names e.g., Fred
 	namecnt=$(./scan_names.sh $freqnm)

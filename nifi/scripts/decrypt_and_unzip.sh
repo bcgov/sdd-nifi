@@ -4,6 +4,7 @@ fileName=$1
 encryptionType=$2
 encryptionKey=$3
 runVirusScan=$4
+gpgPassPhrase=$(<$5)
 case $encryptionType in
 	"None")
 		if [[ $runVirusScan != 'false' ]] 
@@ -18,8 +19,8 @@ case $encryptionType in
 	;;
 	"GPG")
 		decryptedFileName="${fileName}_de.zip"
-		[ -z "$GPG_PASS_PHRASE" ] && echo "GPG passphrase environment variable not set." && exit 1
-		gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $fileName || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
+		[ -z "$gpgPassPhrase" ] && echo "GPG passphrase variable not set." && exit 1
+		gpg --decrypt --pinentry-mode loopback --passphrase $gpgPassPhrase -o $decryptedFileName $fileName || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
 		echo "Successfully decrypted GPG encrypted file"
 		if [[ $runVirusScan != 'false' ]] 
 		then
@@ -33,12 +34,12 @@ case $encryptionType in
 	"GPG-MC")
 		7z x $fileName -odata || { echo 'error occurred during unzipping attempt' ; exit 1; }
 		FILES=./data/*
-		[ -z "$GPG_PASS_PHRASE" ] && echo "GPG passphrase environment variable not set." && exit 1
+		[ -z "$gpgPassPhrase" ] && echo "GPG passphrase variable not set." && exit 1
 		for f in $FILES
 		do
 			decryptedFileName="${f}_de" 
 			# loop through files and decrypt
-			gpg --decrypt --pinentry-mode loopback --passphrase $GPG_PASS_PHRASE -o $decryptedFileName $f  || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
+			gpg --decrypt --pinentry-mode loopback --passphrase $gpgPassPhrase -o $decryptedFileName $f  || { echo 'error occurred during GPG decryption attempt' ; exit 1; }
 			echo "Successfully decrypted GPG encrypted file $f"
 			mv $decryptedFileName $f
 			if [[ $encryptionKey != 'None' ]]

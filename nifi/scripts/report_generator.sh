@@ -49,8 +49,8 @@ while IFS= read -r -d '' file; do
 		fi
 	fi
 	# find any numbers that match the pattern for a PHN or phone number
-	phnlines=$(./phn_finder $file | wc -l)    
-	phonelines=$(./phone_finder $file | wc -l)
+	phnlines=$(./phn_finder.sh $file | wc -l)    
+	phonelines=$(./phone_finder.sh $file | wc -l)
 	# create a .tab file for each column in the csv.  Tab files have frequency of each value in the column. 
 	./chkfreq $file >  "$path/${file}.tab"
 	freqnm="${file}.tab"
@@ -66,14 +66,14 @@ while IFS= read -r -d '' file; do
 	echo "- delimiter: $sep"
 	echo "- md5sum: $md5sum"
 	echo "******"
-	./field_summary_csv $file $sep | ./highlight *remove
-	echo "run sanitize_csv on the file if there are linebreaks in quoted fields" | ./highlight *remove
+	./field_summary_csv.sh $file $sep | ./highlight.sh *remove
+	echo "run sanitize_csv on the file if there are linebreaks in quoted fields" | ./highlight.sh *remove
 	echo "******"
 	echo "- contains $hcolumns columns:"
-	./get_column_names.sh $file | ./highlight *remove
+	./get_column_names.sh $file | ./highlight.sh *remove
 	echo "******"
-	head -5 $file | ./highlight *remove
-	tail -5 $file | ./highlight *remove
+	head -5 $file | ./highlight.sh *remove
+	tail -5 $file | ./highlight.sh *remove
 	echo "******"
 	echo "$phnlines lines have potential PHNs"
 	echo "$phonelines lines have potential phone numbers"

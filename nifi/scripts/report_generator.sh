@@ -43,7 +43,7 @@ while IFS= read -r -d '' file; do
 	# determine the md5 hash of the file
 	md5sum=$(md5sum $file) 
 	# print validation report
-	echo "X) $origfile"
+	echo "X) $file"
 	echo "- size: $size"
 	echo "- encoding: $encoding"
 	echo "- contains $records records (including header)"

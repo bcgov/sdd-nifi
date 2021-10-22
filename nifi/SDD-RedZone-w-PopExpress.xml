@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <template encoding-version="1.3">
-    <description>updates to report generator script and listfiles config</description>
+    <description>added support for calling PopExpress API when reports are completed and when a notification occurs. </description>
     <groupId>cae50c9c-0179-1000-0a71-48dcaa16caea</groupId>
-    <name>SDD-RedZone-w-PopExpress-v1.1</name>
+    <name>SDD-RedZone-w-PopExpress-v1.2</name>
     <snippet>
         <processGroups>
             <id>09e74d77-42aa-3eed-0000-000000000000</id>
@@ -14,6 +14,34 @@
             <versionedComponentId>09e74d77-42aa-3eed-bd0a-50410816ccae</versionedComponentId>
             <comments>Red zone Nifi flow that works closely with PopExpress</comments>
             <contents>
+                <connections>
+                    <id>00ec2214-d7d5-3d48-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <versionedComponentId>00ec2214-d7d5-3d48-85d2-b54737e0ddca</versionedComponentId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>22aff53e-9d5c-37be-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>22aff53e-9d5c-37be-8633-0968156ef26b</versionedComponentId>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>bc01e1ec-9f4a-3672-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>bc01e1ec-9f4a-3672-9a2b-653e6f8c7105</versionedComponentId>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
                 <connections>
                     <id>207f8e74-89f4-3cfa-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
@@ -71,23 +99,46 @@
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
-                    <id>51d50164-48db-30c4-0000-000000000000</id>
+                    <id>346b42e6-a39e-317d-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
-                    <versionedComponentId>51d50164-48db-30c4-a822-b5257dba1f95</versionedComponentId>
+                    <versionedComponentId>346b42e6-a39e-317d-848b-b1dabb8f51a3</versionedComponentId>
                     <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                    <bends>
-                        <x>440.0</x>
-                        <y>3064.0</y>
-                    </bends>
                     <destination>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>6d5e74be-915f-3da4-0000-000000000000</id>
+                        <id>6daa6857-a891-3abd-0000-000000000000</id>
                         <type>PROCESSOR</type>
-                        <versionedComponentId>6d5e74be-915f-3da4-a70e-1bfd1a5a8f4c</versionedComponentId>
+                        <versionedComponentId>7ef7b310-bd09-3446-b6f9-4b36f9ee3d75</versionedComponentId>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>0</labelIndex>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <source>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>72e728b8-18ae-3641-0000-000000000000</id>
+                        <type>FUNNEL</type>
+                        <versionedComponentId>72e728b8-18ae-3641-adb2-5848e2b3150a</versionedComponentId>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>3516e116-faee-33e7-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <versionedComponentId>3516e116-faee-33e7-853d-39aa068b9f88</versionedComponentId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>f50eac51-fc36-35a2-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>f50eac51-fc36-35a2-8e0f-b087614b307a</versionedComponentId>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
                     <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
                     <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
                     <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
@@ -96,9 +147,9 @@
                     <selectedRelationships>success</selectedRelationships>
                     <source>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>4c30a517-d03d-340f-0000-000000000000</id>
+                        <id>f6f544f4-614b-31e6-0000-000000000000</id>
                         <type>PROCESSOR</type>
-                        <versionedComponentId>4c30a517-d03d-340f-994e-86a5784c583d</versionedComponentId>
+                        <versionedComponentId>f6f544f4-614b-31e6-a4f8-48522ef21a9b</versionedComponentId>
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
@@ -159,6 +210,34 @@
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
+                    <id>579e66d4-a1e7-38d8-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <versionedComponentId>579e66d4-a1e7-38d8-a0ce-e041d173f424</versionedComponentId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>72e728b8-18ae-3641-0000-000000000000</id>
+                        <type>FUNNEL</type>
+                        <versionedComponentId>72e728b8-18ae-3641-adb2-5848e2b3150a</versionedComponentId>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>failure</selectedRelationships>
+                    <source>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>bc01e1ec-9f4a-3672-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>bc01e1ec-9f4a-3672-9a2b-653e6f8c7105</versionedComponentId>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
                     <id>57ec9ad2-7d8a-3495-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <versionedComponentId>57ec9ad2-7d8a-3495-83e3-e9065e8441bc</versionedComponentId>
@@ -187,16 +266,16 @@
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
-                    <id>583e6a12-eb42-3206-0000-000000000000</id>
+                    <id>699c96c2-ed19-3112-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
-                    <versionedComponentId>583e6a12-eb42-3206-855d-d2230936f33d</versionedComponentId>
+                    <versionedComponentId>699c96c2-ed19-3112-9cf1-f439b4ea5a4b</versionedComponentId>
                     <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                     <destination>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>6daa6857-a891-3abd-0000-000000000000</id>
+                        <id>d7178b2b-1b65-3570-0000-000000000000</id>
                         <type>PROCESSOR</type>
-                        <versionedComponentId>7ef7b310-bd09-3446-b6f9-4b36f9ee3d75</versionedComponentId>
+                        <versionedComponentId>d7178b2b-1b65-3570-ad5a-637c52c1ed89</versionedComponentId>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
                     <labelIndex>1</labelIndex>
@@ -205,12 +284,12 @@
                     <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
                     <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
                     <name></name>
-                    <selectedRelationships>failure</selectedRelationships>
+                    <selectedRelationships>success</selectedRelationships>
                     <source>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>bc01e1ec-9f4a-3672-0000-000000000000</id>
+                        <id>0ab88e0f-8737-3831-0000-000000000000</id>
                         <type>PROCESSOR</type>
-                        <versionedComponentId>bc01e1ec-9f4a-3672-9a2b-653e6f8c7105</versionedComponentId>
+                        <versionedComponentId>0ab88e0f-8737-3831-9794-8fb0833c9795</versionedComponentId>
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
@@ -222,9 +301,9 @@
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
                     <destination>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>f50eac51-fc36-35a2-0000-000000000000</id>
+                        <id>6d5e74be-915f-3da4-0000-000000000000</id>
                         <type>PROCESSOR</type>
-                        <versionedComponentId>f50eac51-fc36-35a2-8e0f-b087614b307a</versionedComponentId>
+                        <versionedComponentId>6d5e74be-915f-3da4-a70e-1bfd1a5a8f4c</versionedComponentId>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
                     <labelIndex>1</labelIndex>
@@ -383,6 +462,34 @@
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
+                    <id>a7d61274-4ec3-37fc-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <versionedComponentId>a7d61274-4ec3-37fc-8278-4ca2a84104f8</versionedComponentId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>e9b008b7-aa1f-3348-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>e9b008b7-aa1f-3348-8873-a2f37a437b2f</versionedComponentId>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>db682d74-e94b-3fa5-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>db682d74-e94b-3fa5-acc1-ea942ab893c0</versionedComponentId>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
                     <id>ac95952b-3618-3dd6-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <versionedComponentId>ac95952b-3618-3dd6-9053-4f5f72718ea0</versionedComponentId>
@@ -495,43 +602,11 @@
                     <zIndex>0</zIndex>
                 </connections>
                 <connections>
-                    <id>d1182b28-a673-39b6-0000-000000000000</id>
-                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
-                    <versionedComponentId>d1182b28-a673-39b6-a29b-2c64d60ca7fe</versionedComponentId>
-                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                    <destination>
-                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>22aff53e-9d5c-37be-0000-000000000000</id>
-                        <type>PROCESSOR</type>
-                        <versionedComponentId>22aff53e-9d5c-37be-8633-0968156ef26b</versionedComponentId>
-                    </destination>
-                    <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>1</labelIndex>
-                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-                    <name></name>
-                    <selectedRelationships>output stream</selectedRelationships>
-                    <source>
-                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>f50eac51-fc36-35a2-0000-000000000000</id>
-                        <type>PROCESSOR</type>
-                        <versionedComponentId>f50eac51-fc36-35a2-8e0f-b087614b307a</versionedComponentId>
-                    </source>
-                    <zIndex>0</zIndex>
-                </connections>
-                <connections>
                     <id>d1e6d4eb-9dec-3b58-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <versionedComponentId>d1e6d4eb-9dec-3b58-9b54-3488efa0689d</versionedComponentId>
                     <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                    <bends>
-                        <x>2424.0</x>
-                        <y>2720.0</y>
-                    </bends>
                     <destination>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
                         <id>859fe690-3067-3cb1-0000-000000000000</id>
@@ -588,14 +663,18 @@
                     <versionedComponentId>e62203c1-0e9c-3b2e-943f-e7fbf95ed22f</versionedComponentId>
                     <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
                     <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <bends>
+                        <x>552.0</x>
+                        <y>2352.0</y>
+                    </bends>
                     <destination>
                         <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>6daa6857-a891-3abd-0000-000000000000</id>
-                        <type>PROCESSOR</type>
-                        <versionedComponentId>7ef7b310-bd09-3446-b6f9-4b36f9ee3d75</versionedComponentId>
+                        <id>72e728b8-18ae-3641-0000-000000000000</id>
+                        <type>FUNNEL</type>
+                        <versionedComponentId>72e728b8-18ae-3641-adb2-5848e2b3150a</versionedComponentId>
                     </destination>
                     <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>1</labelIndex>
+                    <labelIndex>0</labelIndex>
                     <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
                     <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
                     <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
@@ -607,6 +686,62 @@
                         <id>f6f544f4-614b-31e6-0000-000000000000</id>
                         <type>PROCESSOR</type>
                         <versionedComponentId>f6f544f4-614b-31e6-a4f8-48522ef21a9b</versionedComponentId>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>e841d198-cf23-390a-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <versionedComponentId>e841d198-cf23-390a-8d5c-0a1392734cdd</versionedComponentId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>72e728b8-18ae-3641-0000-000000000000</id>
+                        <type>FUNNEL</type>
+                        <versionedComponentId>72e728b8-18ae-3641-adb2-5848e2b3150a</versionedComponentId>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>failure</selectedRelationships>
+                    <source>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>db682d74-e94b-3fa5-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>db682d74-e94b-3fa5-acc1-ea942ab893c0</versionedComponentId>
+                    </source>
+                    <zIndex>0</zIndex>
+                </connections>
+                <connections>
+                    <id>f227a9e6-ab5d-3ac6-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <versionedComponentId>f227a9e6-ab5d-3ac6-b10b-49b5e64bac73</versionedComponentId>
+                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+                    <destination>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>db682d74-e94b-3fa5-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>db682d74-e94b-3fa5-acc1-ea942ab893c0</versionedComponentId>
+                    </destination>
+                    <flowFileExpiration>0 sec</flowFileExpiration>
+                    <labelIndex>1</labelIndex>
+                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
+                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
+                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
+                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
+                    <name></name>
+                    <selectedRelationships>success</selectedRelationships>
+                    <source>
+                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
+                        <id>e603799f-be47-3755-0000-000000000000</id>
+                        <type>PROCESSOR</type>
+                        <versionedComponentId>e603799f-be47-3755-925c-41b828f2780a</versionedComponentId>
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
@@ -638,40 +773,21 @@
                     </source>
                     <zIndex>0</zIndex>
                 </connections>
-                <connections>
-                    <id>f98b385a-8a37-32c5-0000-000000000000</id>
+                <funnels>
+                    <id>72e728b8-18ae-3641-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
-                    <versionedComponentId>f98b385a-8a37-32c5-8920-44c75f46f133</versionedComponentId>
-                    <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
-                    <backPressureObjectThreshold>10000</backPressureObjectThreshold>
-                    <destination>
-                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>bc01e1ec-9f4a-3672-0000-000000000000</id>
-                        <type>PROCESSOR</type>
-                        <versionedComponentId>bc01e1ec-9f4a-3672-9a2b-653e6f8c7105</versionedComponentId>
-                    </destination>
-                    <flowFileExpiration>0 sec</flowFileExpiration>
-                    <labelIndex>1</labelIndex>
-                    <loadBalanceCompression>DO_NOT_COMPRESS</loadBalanceCompression>
-                    <loadBalancePartitionAttribute></loadBalancePartitionAttribute>
-                    <loadBalanceStatus>LOAD_BALANCE_NOT_CONFIGURED</loadBalanceStatus>
-                    <loadBalanceStrategy>DO_NOT_LOAD_BALANCE</loadBalanceStrategy>
-                    <name></name>
-                    <selectedRelationships>success</selectedRelationships>
-                    <source>
-                        <groupId>09e74d77-42aa-3eed-0000-000000000000</groupId>
-                        <id>e603799f-be47-3755-0000-000000000000</id>
-                        <type>PROCESSOR</type>
-                        <versionedComponentId>e603799f-be47-3755-925c-41b828f2780a</versionedComponentId>
-                    </source>
-                    <zIndex>0</zIndex>
-                </connections>
+                    <position>
+                        <x>740.5268657314087</x>
+                        <y>3151.9275124680416</y>
+                    </position>
+                    <versionedComponentId>72e728b8-18ae-3641-adb2-5848e2b3150a</versionedComponentId>
+                </funnels>
                 <labels>
                     <id>02a0c308-4eae-3e5f-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>693.8450706425742</x>
-                        <y>2934.7069077349142</y>
+                        <x>832.0</x>
+                        <y>1600.0</y>
                     </position>
                     <versionedComponentId>02a0c308-4eae-3e5f-8ff4-3fdff8045a1d</versionedComponentId>
                     <height>576.0</height>
@@ -683,7 +799,7 @@ Save metadata to reports folder.</label>
                             <value>12px</value>
                         </entry>
                     </style>
-                    <width>672.0</width>
+                    <width>552.0</width>
                 </labels>
                 <labels>
                     <id>1ef4ec46-e599-3192-0000-000000000000</id>
@@ -722,11 +838,47 @@ Save metadata to reports folder.</label>
                     <width>640.0</width>
                 </labels>
                 <labels>
+                    <id>51532bea-bde5-3d8a-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>3016.0</x>
+                        <y>1608.0</y>
+                    </position>
+                    <versionedComponentId>51532bea-bde5-3d8a-94e5-1a266abafbdc</versionedComponentId>
+                    <height>208.0</height>
+                    <label>Tell PopExpress to pick up the notifications in the notifications folder</label>
+                    <style>
+                        <entry>
+                            <key>font-size</key>
+                            <value>12px</value>
+                        </entry>
+                    </style>
+                    <width>480.0</width>
+                </labels>
+                <labels>
+                    <id>a1c4cf17-8407-3d33-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1992.0</x>
+                        <y>2712.0</y>
+                    </position>
+                    <versionedComponentId>a1c4cf17-8407-3d33-9db4-10a618b17e1f</versionedComponentId>
+                    <height>208.0</height>
+                    <label>Tell PopExpress to pick up the reports in the reports folder</label>
+                    <style>
+                        <entry>
+                            <key>font-size</key>
+                            <value>12px</value>
+                        </entry>
+                    </style>
+                    <width>480.0</width>
+                </labels>
+                <labels>
                     <id>ff0f17e3-0611-36dd-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>-528.0</x>
-                        <y>1784.0</y>
+                        <x>-520.0</x>
+                        <y>1776.0</y>
                     </position>
                     <versionedComponentId>ff0f17e3-0611-36dd-b4f4-78b31df4733d</versionedComponentId>
                     <height>936.0</height>
@@ -743,8 +895,8 @@ Save metadata to reports folder.</label>
                     <id>095882f8-9a50-36be-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>1640.0</x>
-                        <y>2016.0</y>
+                        <x>1664.0</x>
+                        <y>2112.0</y>
                     </position>
                     <versionedComponentId>095882f8-9a50-36be-9d7a-547a19545d26</versionedComponentId>
                     <bundle>
@@ -799,6 +951,12 @@ Save metadata to reports folder.</label>
     <name>EmailTo</name>
 </value>
                             </entry>
+                            <entry>
+<key>filename</key>
+<value>
+    <name>filename</name>
+</value>
+                            </entry>
                         </descriptors>
                         <executionNode>ALL</executionNode>
                         <lossTolerant>false</lossTolerant>
@@ -830,6 +988,10 @@ Save metadata to reports folder.</label>
 <key>EmailTo</key>
 <value>#{DraftReportFailedEmailToNotify}</value>
                             </entry>
+                            <entry>
+<key>filename</key>
+<value>failed_to_generate_draft_report.json</value>
+                            </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
                         <schedulingPeriod>0 sec</schedulingPeriod>
@@ -855,8 +1017,8 @@ Save metadata to reports folder.</label>
                     <id>0ab88e0f-8737-3831-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>2301.8450706425742</x>
-                        <y>1654.7069077349145</y>
+                        <x>2336.0</x>
+                        <y>1640.0</y>
                     </position>
                     <versionedComponentId>0ab88e0f-8737-3831-9794-8fb0833c9795</versionedComponentId>
                     <bundle>
@@ -956,16 +1118,16 @@ Save metadata to reports folder.</label>
                         <yieldDuration>1 sec</yieldDuration>
                     </config>
                     <executionNodeRestricted>false</executionNodeRestricted>
-                    <name>PutFile</name>
+                    <name>SaveNotificationJsonPutFile</name>
                     <relationships>
                         <autoTerminate>true</autoTerminate>
                         <name>failure</name>
                     </relationships>
                     <relationships>
-                        <autoTerminate>true</autoTerminate>
+                        <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>STOPPED</state>
+                    <state>RUNNING</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.PutFile</type>
                 </processors>
@@ -1540,8 +1702,8 @@ Save metadata to reports folder.</label>
                     <id>6d35a022-db6e-3b83-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>2024.0</x>
-                        <y>2432.0</y>
+                        <x>2064.0</x>
+                        <y>2368.0</y>
                     </position>
                     <versionedComponentId>6d35a022-db6e-3b83-ae2e-9b7d36314496</versionedComponentId>
                     <bundle>
@@ -1596,6 +1758,12 @@ Save metadata to reports folder.</label>
     <name>EmailTo</name>
 </value>
                             </entry>
+                            <entry>
+<key>filename</key>
+<value>
+    <name>filename</name>
+</value>
+                            </entry>
                         </descriptors>
                         <executionNode>ALL</executionNode>
                         <lossTolerant>false</lossTolerant>
@@ -1627,6 +1795,10 @@ Save metadata to reports folder.</label>
 <key>EmailTo</key>
 <value>#{ReviewDraftSummaryReportEmailToNotify}</value>
                             </entry>
+                            <entry>
+<key>filename</key>
+<value>draft_report_notification.json</value>
+                            </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
                         <schedulingPeriod>0 sec</schedulingPeriod>
@@ -1652,8 +1824,8 @@ Save metadata to reports folder.</label>
                     <id>6d5e74be-915f-3da4-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>909.8450706425742</x>
-                        <y>2974.7069077349142</y>
+                        <x>952.0</x>
+                        <y>1632.0</y>
                     </position>
                     <versionedComponentId>6d5e74be-915f-3da4-a70e-1bfd1a5a8f4c</versionedComponentId>
                     <bundle>
@@ -1737,7 +1909,7 @@ Save metadata to reports folder.</label>
                             </entry>
                             <entry>
 <key>Working Directory</key>
-<value>${absolute.path}/unzipped</value>
+<value>${absolute.path}unzipped</value>
                             </entry>
                             <entry>
 <key>Argument Delimiter</key>
@@ -1779,7 +1951,7 @@ Save metadata to reports folder.</label>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
                         <x>2496.0</x>
-                        <y>2800.0</y>
+                        <y>3120.0</y>
                     </position>
                     <versionedComponentId>7ef7b310-bd09-3446-b6f9-4b36f9ee3d75</versionedComponentId>
                     <bundle>
@@ -1834,6 +2006,12 @@ Save metadata to reports folder.</label>
     <name>EmailTo</name>
 </value>
                             </entry>
+                            <entry>
+<key>filename</key>
+<value>
+    <name>filename</name>
+</value>
+                            </entry>
                         </descriptors>
                         <executionNode>ALL</executionNode>
                         <lossTolerant>false</lossTolerant>
@@ -1864,6 +2042,10 @@ Save metadata to reports folder.</label>
                             <entry>
 <key>EmailTo</key>
 <value>#{PopExpressIssuesEmailToNotify}</value>
+                            </entry>
+                            <entry>
+<key>filename</key>
+<value>failed_to_save_report.json</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -1977,8 +2159,8 @@ Save metadata to reports folder.</label>
                     <id>859fe690-3067-3cb1-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>2317.8450706425742</x>
-                        <y>2062.7069077349142</y>
+                        <x>2336.0</x>
+                        <y>2064.0</y>
                     </position>
                     <versionedComponentId>859fe690-3067-3cb1-b2b0-31cd81ffe2e8</versionedComponentId>
                     <bundle>
@@ -2022,7 +2204,7 @@ Save metadata to reports folder.</label>
                         <properties>
                             <entry>
 <key>Delete Attributes Expression</key>
-<value>^(?!(EmailTo|EmailSubject|EmailMessage)$).*$</value>
+<value>^(?!(EmailTo|EmailSubject|EmailMessage|absolute.path|filename)$).*$</value>
                             </entry>
                             <entry>
 <key>Store State</key>
@@ -2047,7 +2229,7 @@ Save metadata to reports folder.</label>
                         <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>STOPPED</state>
+                    <state>RUNNING</state>
                     <style/>
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
                 </processors>
@@ -2055,8 +2237,8 @@ Save metadata to reports folder.</label>
                     <id>b782251c-1e5b-35b5-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>917.8450706425742</x>
-                        <y>3174.7069077349142</y>
+                        <x>960.0</x>
+                        <y>1832.0</y>
                     </position>
                     <versionedComponentId>b782251c-1e5b-35b5-950c-82772865d665</versionedComponentId>
                     <bundle>
@@ -2142,8 +2324,8 @@ Save metadata to reports folder.</label>
                     <id>b900b9ec-541c-3529-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>1560.0</x>
-                        <y>2968.0</y>
+                        <x>1696.0</x>
+                        <y>1472.0</y>
                     </position>
                     <versionedComponentId>b900b9ec-541c-3529-b4ac-b639c7b9a8cf</versionedComponentId>
                     <bundle>
@@ -2198,6 +2380,12 @@ Save metadata to reports folder.</label>
     <name>EmailTo</name>
 </value>
                             </entry>
+                            <entry>
+<key>filename</key>
+<value>
+    <name>filename</name>
+</value>
+                            </entry>
                         </descriptors>
                         <executionNode>ALL</executionNode>
                         <lossTolerant>false</lossTolerant>
@@ -2228,6 +2416,10 @@ Save metadata to reports folder.</label>
                             <entry>
 <key>EmailTo</key>
 <value>#{FailedToInferMetadataEmailToNotify}</value>
+                            </entry>
+                            <entry>
+<key>filename</key>
+<value>failed_to_infer_metadata.json</value>
                             </entry>
                         </properties>
                         <runDurationMillis>0</runDurationMillis>
@@ -2361,10 +2553,10 @@ Save metadata to reports folder.</label>
                         <name>failure</name>
                     </relationships>
                     <relationships>
-                        <autoTerminate>true</autoTerminate>
+                        <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>STOPPED</state>
+                    <state>RUNNING</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.PutFile</type>
                 </processors>
@@ -2672,6 +2864,519 @@ Save metadata to reports folder.</label>
                     <type>org.apache.nifi.processors.standard.ExtractText</type>
                 </processors>
                 <processors>
+                    <id>d7178b2b-1b65-3570-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>3088.0</x>
+                        <y>1640.0</y>
+                    </position>
+                    <versionedComponentId>d7178b2b-1b65-3570-ad5a-637c52c1ed89</versionedComponentId>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.13.2</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>HTTP Method</key>
+<value>
+    <name>HTTP Method</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Remote URL</key>
+<value>
+    <name>Remote URL</name>
+</value>
+                            </entry>
+                            <entry>
+<key>SSL Context Service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+    <name>SSL Context Service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Connection Timeout</key>
+<value>
+    <name>Connection Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Read Timeout</key>
+<value>
+    <name>Read Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>idle-timeout</key>
+<value>
+    <name>idle-timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>max-idle-connections</key>
+<value>
+    <name>max-idle-connections</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Include Date Header</key>
+<value>
+    <name>Include Date Header</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Follow Redirects</key>
+<value>
+    <name>Follow Redirects</name>
+</value>
+                            </entry>
+                            <entry>
+<key>disable-http2</key>
+<value>
+    <name>disable-http2</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Send</key>
+<value>
+    <name>Attributes to Send</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Useragent</key>
+<value>
+    <name>Useragent</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Username</key>
+<value>
+    <name>Basic Authentication Username</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Password</key>
+<value>
+    <name>Basic Authentication Password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>proxy-configuration-service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+    <name>proxy-configuration-service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Host</key>
+<value>
+    <name>Proxy Host</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Port</key>
+<value>
+    <name>Proxy Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Type</key>
+<value>
+    <name>Proxy Type</name>
+</value>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-user</key>
+<value>
+    <name>invokehttp-proxy-user</name>
+</value>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-password</key>
+<value>
+    <name>invokehttp-proxy-password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Put Response Body In Attribute</key>
+<value>
+    <name>Put Response Body In Attribute</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Max Length To Put In Attribute</key>
+<value>
+    <name>Max Length To Put In Attribute</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Digest Authentication</key>
+<value>
+    <name>Digest Authentication</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Always Output Response</key>
+<value>
+    <name>Always Output Response</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Add Response Headers to Request</key>
+<value>
+    <name>Add Response Headers to Request</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Content-Type</key>
+<value>
+    <name>Content-Type</name>
+</value>
+                            </entry>
+                            <entry>
+<key>send-message-body</key>
+<value>
+    <name>send-message-body</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Use Chunked Encoding</key>
+<value>
+    <name>Use Chunked Encoding</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Penalize on "No Retry"</key>
+<value>
+    <name>Penalize on "No Retry"</name>
+</value>
+                            </entry>
+                            <entry>
+<key>use-etag</key>
+<value>
+    <name>use-etag</name>
+</value>
+                            </entry>
+                            <entry>
+<key>etag-max-cache-size</key>
+<value>
+    <name>etag-max-cache-size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>ignore-response-content</key>
+<value>
+    <name>ignore-response-content</name>
+</value>
+                            </entry>
+                            <entry>
+<key>form-body-form-name</key>
+<value>
+    <name>form-body-form-name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>set-form-filename</key>
+<value>
+    <name>set-form-filename</name>
+</value>
+                            </entry>
+                            <entry>
+<key>data</key>
+<value>
+    <name>data</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>HTTP Method</key>
+<value>POST</value>
+                            </entry>
+                            <entry>
+<key>Remote URL</key>
+<value>#{NotificationPopExpressRemoteURL}</value>
+                            </entry>
+                            <entry>
+<key>SSL Context Service</key>
+                            </entry>
+                            <entry>
+<key>Connection Timeout</key>
+<value>5 secs</value>
+                            </entry>
+                            <entry>
+<key>Read Timeout</key>
+<value>15 secs</value>
+                            </entry>
+                            <entry>
+<key>idle-timeout</key>
+<value>5 mins</value>
+                            </entry>
+                            <entry>
+<key>max-idle-connections</key>
+<value>5</value>
+                            </entry>
+                            <entry>
+<key>Include Date Header</key>
+<value>True</value>
+                            </entry>
+                            <entry>
+<key>Follow Redirects</key>
+<value>True</value>
+                            </entry>
+                            <entry>
+<key>disable-http2</key>
+<value>False</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Send</key>
+                            </entry>
+                            <entry>
+<key>Useragent</key>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Username</key>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Password</key>
+                            </entry>
+                            <entry>
+<key>proxy-configuration-service</key>
+                            </entry>
+                            <entry>
+<key>Proxy Host</key>
+                            </entry>
+                            <entry>
+<key>Proxy Port</key>
+                            </entry>
+                            <entry>
+<key>Proxy Type</key>
+<value>http</value>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-user</key>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-password</key>
+                            </entry>
+                            <entry>
+<key>Put Response Body In Attribute</key>
+                            </entry>
+                            <entry>
+<key>Max Length To Put In Attribute</key>
+<value>256</value>
+                            </entry>
+                            <entry>
+<key>Digest Authentication</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Always Output Response</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Add Response Headers to Request</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Content-Type</key>
+<value>${mime.type}</value>
+                            </entry>
+                            <entry>
+<key>send-message-body</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>Use Chunked Encoding</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Penalize on "No Retry"</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>use-etag</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>etag-max-cache-size</key>
+<value>10MB</value>
+                            </entry>
+                            <entry>
+<key>ignore-response-content</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>form-body-form-name</key>
+                            </entry>
+                            <entry>
+<key>set-form-filename</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>data</key>
+<value>#{NotificationDataToSendToPopExpressAPI}</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>InvokeHTTP</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>No Retry</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Original</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Response</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Retry</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
+                </processors>
+                <processors>
+                    <id>db682d74-e94b-3fa5-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>1456.0</x>
+                        <y>2744.0</y>
+                    </position>
+                    <versionedComponentId>db682d74-e94b-3fa5-acc1-ea942ab893c0</versionedComponentId>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.13.2</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>Directory</key>
+<value>
+    <name>Directory</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Conflict Resolution Strategy</key>
+<value>
+    <name>Conflict Resolution Strategy</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Create Missing Directories</key>
+<value>
+    <name>Create Missing Directories</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Maximum File Count</key>
+<value>
+    <name>Maximum File Count</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Last Modified Time</key>
+<value>
+    <name>Last Modified Time</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Permissions</key>
+<value>
+    <name>Permissions</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Owner</key>
+<value>
+    <name>Owner</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Group</key>
+<value>
+    <name>Group</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>Directory</key>
+<value>#{ReportsDirectory}</value>
+                            </entry>
+                            <entry>
+<key>Conflict Resolution Strategy</key>
+<value>replace</value>
+                            </entry>
+                            <entry>
+<key>Create Missing Directories</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>Maximum File Count</key>
+                            </entry>
+                            <entry>
+<key>Last Modified Time</key>
+                            </entry>
+                            <entry>
+<key>Permissions</key>
+                            </entry>
+                            <entry>
+<key>Owner</key>
+                            </entry>
+                            <entry>
+<key>Group</key>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>SaveFilteredSummaryReportPutFile</name>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>false</autoTerminate>
+                        <name>success</name>
+                    </relationships>
+                    <state>RUNNING</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.PutFile</type>
+                </processors>
+                <processors>
                     <id>e603799f-be47-3755-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
@@ -2754,9 +3459,404 @@ Save metadata to reports folder.</label>
                         <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>STOPPED</state>
+                    <state>RUNNING</state>
                     <style/>
                     <type>org.apache.nifi.processors.attributes.UpdateAttribute</type>
+                </processors>
+                <processors>
+                    <id>e9b008b7-aa1f-3348-0000-000000000000</id>
+                    <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
+                    <position>
+                        <x>2080.0</x>
+                        <y>2752.0</y>
+                    </position>
+                    <versionedComponentId>e9b008b7-aa1f-3348-8873-a2f37a437b2f</versionedComponentId>
+                    <bundle>
+                        <artifact>nifi-standard-nar</artifact>
+                        <group>org.apache.nifi</group>
+                        <version>1.13.2</version>
+                    </bundle>
+                    <config>
+                        <bulletinLevel>WARN</bulletinLevel>
+                        <comments></comments>
+                        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+                        <descriptors>
+                            <entry>
+<key>HTTP Method</key>
+<value>
+    <name>HTTP Method</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Remote URL</key>
+<value>
+    <name>Remote URL</name>
+</value>
+                            </entry>
+                            <entry>
+<key>SSL Context Service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+    <name>SSL Context Service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Connection Timeout</key>
+<value>
+    <name>Connection Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Read Timeout</key>
+<value>
+    <name>Read Timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>idle-timeout</key>
+<value>
+    <name>idle-timeout</name>
+</value>
+                            </entry>
+                            <entry>
+<key>max-idle-connections</key>
+<value>
+    <name>max-idle-connections</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Include Date Header</key>
+<value>
+    <name>Include Date Header</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Follow Redirects</key>
+<value>
+    <name>Follow Redirects</name>
+</value>
+                            </entry>
+                            <entry>
+<key>disable-http2</key>
+<value>
+    <name>disable-http2</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Send</key>
+<value>
+    <name>Attributes to Send</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Useragent</key>
+<value>
+    <name>Useragent</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Username</key>
+<value>
+    <name>Basic Authentication Username</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Password</key>
+<value>
+    <name>Basic Authentication Password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>proxy-configuration-service</key>
+<value>
+    <identifiesControllerService>org.apache.nifi.proxy.ProxyConfigurationService</identifiesControllerService>
+    <name>proxy-configuration-service</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Host</key>
+<value>
+    <name>Proxy Host</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Port</key>
+<value>
+    <name>Proxy Port</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Proxy Type</key>
+<value>
+    <name>Proxy Type</name>
+</value>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-user</key>
+<value>
+    <name>invokehttp-proxy-user</name>
+</value>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-password</key>
+<value>
+    <name>invokehttp-proxy-password</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Put Response Body In Attribute</key>
+<value>
+    <name>Put Response Body In Attribute</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Max Length To Put In Attribute</key>
+<value>
+    <name>Max Length To Put In Attribute</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Digest Authentication</key>
+<value>
+    <name>Digest Authentication</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Always Output Response</key>
+<value>
+    <name>Always Output Response</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Add Response Headers to Request</key>
+<value>
+    <name>Add Response Headers to Request</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Content-Type</key>
+<value>
+    <name>Content-Type</name>
+</value>
+                            </entry>
+                            <entry>
+<key>send-message-body</key>
+<value>
+    <name>send-message-body</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Use Chunked Encoding</key>
+<value>
+    <name>Use Chunked Encoding</name>
+</value>
+                            </entry>
+                            <entry>
+<key>Penalize on "No Retry"</key>
+<value>
+    <name>Penalize on "No Retry"</name>
+</value>
+                            </entry>
+                            <entry>
+<key>use-etag</key>
+<value>
+    <name>use-etag</name>
+</value>
+                            </entry>
+                            <entry>
+<key>etag-max-cache-size</key>
+<value>
+    <name>etag-max-cache-size</name>
+</value>
+                            </entry>
+                            <entry>
+<key>ignore-response-content</key>
+<value>
+    <name>ignore-response-content</name>
+</value>
+                            </entry>
+                            <entry>
+<key>form-body-form-name</key>
+<value>
+    <name>form-body-form-name</name>
+</value>
+                            </entry>
+                            <entry>
+<key>set-form-filename</key>
+<value>
+    <name>set-form-filename</name>
+</value>
+                            </entry>
+                            <entry>
+<key>data</key>
+<value>
+    <name>data</name>
+</value>
+                            </entry>
+                        </descriptors>
+                        <executionNode>ALL</executionNode>
+                        <lossTolerant>false</lossTolerant>
+                        <penaltyDuration>30 sec</penaltyDuration>
+                        <properties>
+                            <entry>
+<key>HTTP Method</key>
+<value>POST</value>
+                            </entry>
+                            <entry>
+<key>Remote URL</key>
+<value>#{ReportsPopExpressRemoteURL}</value>
+                            </entry>
+                            <entry>
+<key>SSL Context Service</key>
+                            </entry>
+                            <entry>
+<key>Connection Timeout</key>
+<value>5 secs</value>
+                            </entry>
+                            <entry>
+<key>Read Timeout</key>
+<value>15 secs</value>
+                            </entry>
+                            <entry>
+<key>idle-timeout</key>
+<value>5 mins</value>
+                            </entry>
+                            <entry>
+<key>max-idle-connections</key>
+<value>5</value>
+                            </entry>
+                            <entry>
+<key>Include Date Header</key>
+<value>True</value>
+                            </entry>
+                            <entry>
+<key>Follow Redirects</key>
+<value>True</value>
+                            </entry>
+                            <entry>
+<key>disable-http2</key>
+<value>False</value>
+                            </entry>
+                            <entry>
+<key>Attributes to Send</key>
+                            </entry>
+                            <entry>
+<key>Useragent</key>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Username</key>
+                            </entry>
+                            <entry>
+<key>Basic Authentication Password</key>
+                            </entry>
+                            <entry>
+<key>proxy-configuration-service</key>
+                            </entry>
+                            <entry>
+<key>Proxy Host</key>
+                            </entry>
+                            <entry>
+<key>Proxy Port</key>
+                            </entry>
+                            <entry>
+<key>Proxy Type</key>
+<value>http</value>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-user</key>
+                            </entry>
+                            <entry>
+<key>invokehttp-proxy-password</key>
+                            </entry>
+                            <entry>
+<key>Put Response Body In Attribute</key>
+                            </entry>
+                            <entry>
+<key>Max Length To Put In Attribute</key>
+<value>256</value>
+                            </entry>
+                            <entry>
+<key>Digest Authentication</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Always Output Response</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Add Response Headers to Request</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Content-Type</key>
+<value>${mime.type}</value>
+                            </entry>
+                            <entry>
+<key>send-message-body</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>Use Chunked Encoding</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>Penalize on "No Retry"</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>use-etag</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>etag-max-cache-size</key>
+<value>10MB</value>
+                            </entry>
+                            <entry>
+<key>ignore-response-content</key>
+<value>false</value>
+                            </entry>
+                            <entry>
+<key>form-body-form-name</key>
+                            </entry>
+                            <entry>
+<key>set-form-filename</key>
+<value>true</value>
+                            </entry>
+                            <entry>
+<key>data</key>
+<value>#{ReportsDataToSendToPopExpressAPI}</value>
+                            </entry>
+                        </properties>
+                        <runDurationMillis>0</runDurationMillis>
+                        <schedulingPeriod>0 sec</schedulingPeriod>
+                        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+                        <yieldDuration>1 sec</yieldDuration>
+                    </config>
+                    <executionNodeRestricted>false</executionNodeRestricted>
+                    <name>InvokeHTTP</name>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Failure</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>No Retry</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Original</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Response</name>
+                    </relationships>
+                    <relationships>
+                        <autoTerminate>true</autoTerminate>
+                        <name>Retry</name>
+                    </relationships>
+                    <state>STOPPED</state>
+                    <style/>
+                    <type>org.apache.nifi.processors.standard.InvokeHTTP</type>
                 </processors>
                 <processors>
                     <id>f50eac51-fc36-35a2-0000-000000000000</id>
@@ -2888,8 +3988,8 @@ Save metadata to reports folder.</label>
                     <id>f6f544f4-614b-31e6-0000-000000000000</id>
                     <parentGroupId>09e74d77-42aa-3eed-0000-000000000000</parentGroupId>
                     <position>
-                        <x>912.0</x>
-                        <y>3376.0</y>
+                        <x>952.0</x>
+                        <y>2032.0</y>
                     </position>
                     <versionedComponentId>f6f544f4-614b-31e6-a4f8-48522ef21a9b</versionedComponentId>
                     <bundle>
@@ -2989,16 +4089,16 @@ Save metadata to reports folder.</label>
                         <yieldDuration>1 sec</yieldDuration>
                     </config>
                     <executionNodeRestricted>false</executionNodeRestricted>
-                    <name>PutFile</name>
+                    <name>SaveDataPackageJsonPutFile</name>
                     <relationships>
                         <autoTerminate>false</autoTerminate>
                         <name>failure</name>
                     </relationships>
                     <relationships>
-                        <autoTerminate>true</autoTerminate>
+                        <autoTerminate>false</autoTerminate>
                         <name>success</name>
                     </relationships>
-                    <state>STOPPED</state>
+                    <state>RUNNING</state>
                     <style/>
                     <type>org.apache.nifi.processors.standard.PutFile</type>
                 </processors>
@@ -3009,5 +4109,5 @@ Save metadata to reports folder.</label>
             <variables/>
         </processGroups>
     </snippet>
-    <timestamp>10/20/2021 15:42:43 PDT</timestamp>
+    <timestamp>10/22/2021 10:14:23 PDT</timestamp>
 </template>

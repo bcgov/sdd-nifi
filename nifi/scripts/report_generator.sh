@@ -13,25 +13,24 @@ while IFS= read -r -d '' file; do
 	#sanitize_csv $file
 	size=$(du -h $file | cut  -f1)B
 	encoding=$(file -b --mime-encoding $file)
-	records=$(wc -l < $file)
+	num_lines=$(wc -l < $file)
 	# detect what separator (e.g., comma, pipe) is used to separate the column in the csv 
-	hcolumnsbycomma=$(head -1 $file | awk -F"," '{print NF}')
-	hcolumnsbypipe=$(head -1 $file | awk -F"|" '{print NF}')
-	hcolumnsbyhat=$(head -1 $file | awk -F"^" '{print NF}')
-	if [ "$hcolumnsbycomma -gt $hcolumnsbypipe" -a "$hcolumnsbycomma -gt $hcolumnsbyhat" ]
-	then
-		hcolumns=$hcolumnsbycomma
-		sep=","
-	else
-		if [ "$hcolumnsbypipe -gt $hcolumnsbycomma" -a "$hcolumnsbypipe -gt $hcolumnsbyhat" ]
-		then
-			hcolumns=$hcolumnsbypipe
-			sep="|"
-		else
-			hcolumns=$hcolumnsbyhat
-			sep="^"
+	declare -A delimiter
+	delimiter[","]=$(head -1 $file | awk -F"," '{print NF}')
+	delimiter["|"]=$(head -1 $file | awk -F"|" '{print NF}')
+	delimiter["\t"]=$(head -1 $file | awk -F"\t" '{print NF}')
+	delimiter[";"]=$(head -1 $file | awk -F";" '{print NF}')
+	delimiter[":"]=$(head -1 $file | awk -F":" '{print NF}')
+	delimiter["^"]=$(head -1 $file | awk -F"^" '{print NF}')
+	max=0
+	for k in "${!delimiter[@]}";do
+		if (( ${delimiter["$k"]} > max));then
+				max="${delimiter["$k"]}"
+				sep="$k"
 		fi
-	fi
+	done
+
+	
 	# find any numbers that match the pattern for a PHN or phone number
 	phnlines=$(./phn_finder.sh $file | wc -l)    
 	phonelines=$(./phone_finder.sh $file | wc -l)
@@ -43,10 +42,11 @@ while IFS= read -r -d '' file; do
 	# determine the md5 hash of the file
 	md5sum=$(md5sum $file) 
 	# print validation report
+	echo "Preliminary auto-generated validation report"
 	echo "X) $file"
 	echo "- size: $size"
 	echo "- encoding: $encoding"
-	echo "- contains $records records (including header)"
+	echo "- contains $num_lines lines (including header)"
 	echo "- delimiter: $sep"
 	echo "- md5sum: $md5sum"
 	echo "******"
@@ -54,7 +54,7 @@ while IFS= read -r -d '' file; do
 	echo "run sanitize_csv on the file if there are linebreaks in quoted fields" | ./highlight.sh *remove
 	echo "******"
 	echo "- contains $hcolumns columns:"
-	./get_column_names.sh $file | ./highlight.sh *remove
+	./get_column_names.sh $file | ./highlight.sh
 	echo "******"
 	head -5 $file | ./highlight.sh *remove
 	tail -5 $file | ./highlight.sh *remove

@@ -54,7 +54,7 @@ while IFS= read -r -d '' file; do
 	echo "run sanitize_csv on the file if there are linebreaks in quoted fields" | ./highlight.sh *remove
 	echo "******"
 	echo "- contains $hcolumns columns:"
-	./get_column_names.sh $file | ./highlight.sh
+	./get_column_names.sh $file
 	echo "******"
 	head -5 $file | ./highlight.sh *remove
 	tail -5 $file | ./highlight.sh *remove

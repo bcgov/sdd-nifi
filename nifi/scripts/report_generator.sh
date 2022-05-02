@@ -38,7 +38,7 @@ while IFS= read -r -d '' file; do
 	./chkfreq.sh $file > "${report_directory}${base_file_name}.tab"
 	freqnm="${report_directory}${base_file_name}.tab"
 	# find any strings that could be common names e.g., Fred
-	namecnt=$(./scan_names.sh $freqnm)
+	./scan_names.sh $freqnm > "$freqnm.names"
 	# determine the md5 hash of the file
 	md5sum=$(md5sum $file) 
 	# print validation report
@@ -61,7 +61,6 @@ while IFS= read -r -d '' file; do
 	echo "******"
 	echo "$phnlines lines have potential PHNs"
 	echo "$phonelines lines have potential phone numbers"
-	echo "$namecnt potential names flagged"
 	echo ""
 	echo ""
 done

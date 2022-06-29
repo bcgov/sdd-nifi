@@ -6,7 +6,7 @@ then
 	echo "Usage: $0 file"
 	exit -1
 fi
-sed -e 's/[^[\t a-zA-Z]/ /g'  $1 | awk '{
+sed -e 's/[^[\t a-zA-Z]/ /g'  "$1" | awk '{
 x=1
 while(x<=NF) {
 	freq[tolower($x)]+=1

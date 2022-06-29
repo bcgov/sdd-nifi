@@ -9,7 +9,7 @@ else
 fi
 
 
-cat $1 | head -1 | awk -F$sep '
+cat "$1" | head -1 | awk -F$sep '
 BEGIN{
    counter=1
 }

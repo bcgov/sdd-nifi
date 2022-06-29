@@ -5,7 +5,7 @@ total=0
 input="listofnames.txt"
 echo "Common names in $freqFile:"
 while IFS= read -r line; do
-	nameCt=$(grep -i "^$line " $freqFile | cut -d" " -f2)
+	nameCt=$(grep -i "^$line " "$freqFile" | cut -d" " -f2)
 	if [ $nameCt > 0 ]
 	then
 		echo "$line $nameCt"

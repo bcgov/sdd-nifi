@@ -12,20 +12,15 @@ else
     sep=,
 fi
 
-
-
-
-hfields=$(head -1 $file | awk -F$sep '{print NF}')
+hfields=$(head -1 "$file" | awk -F$sep '{print NF}')
 echo "Header has $hfields fields"
 
-
-
-
-tail -n +2 $file | awk -F$sep -vFPAT="([^$sep]*)|(\"[^\"]+\")" -vOFS=$sep '{addup[NF]+=1}                                                                            
+tail -n +2 "$file" | awk -F$sep -vFPAT="([^$sep]*)|(\"[^\"]+\")" -vOFS=$sep '{addup[NF]+=1}                                                                            
 END {                                                                                                                                    
 for (i in addup) {                                                                                                                       
 print addup[i] " rows with " i " fields"                                                                         
 
-}}' 
+}}'
 
-echo "total $(cat $file | wc -l) rows in file"
+total_rows=$(cat "$file" | wc -l)
+echo "total $total_rows rows in file"

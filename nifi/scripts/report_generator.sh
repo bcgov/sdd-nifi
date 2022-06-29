@@ -9,7 +9,6 @@ mkdir -p $report_directory
 find $path -type f \( -name "*.csv" -or -name "*.CSV" \) -print0 | sort |
 while IFS= read -r -d '' file; do
 	base_file_name=$(basename "$file")
-	#dos2unix -q $file
 	size=$(du -h "$file" | cut  -f1)B
 	encoding=$(file -b --mime-encoding "$file")
 	num_lines=$(wc -l < "$file")

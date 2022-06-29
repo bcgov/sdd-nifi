@@ -8,6 +8,8 @@ mkdir -p $report_directory
 
 find $path -type f \( -name "*.csv" -or -name "*.CSV" \) -print0 | sort |
 while IFS= read -r -d '' file; do
+	# determine the md5 hash of the file
+	md5sum=$(md5sum "$file")
 	base_file_name=$(basename "$file")
 	size=$(du -h "$file" | cut  -f1)B
 	encoding=$(file -b --mime-encoding "$file")
@@ -37,8 +39,7 @@ while IFS= read -r -d '' file; do
 	freqnm="${report_directory}${base_file_name}.tab"
 	# find any strings that could be common names e.g., Fred
 	./scan_names.sh "$freqnm" > "$freqnm.names"
-	# determine the md5 hash of the file
-	md5sum=$(md5sum "$file") 
+	 
 	# print validation report
 	echo "Preliminary auto-generated validation report"
 	echo "X) $file"
